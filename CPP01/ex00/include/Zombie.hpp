@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 16:37:02 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 16:57:12 by elouisia         ###   ########.fr       */
+/*   Created: 2022/11/14 18:04:41 by elouisia          #+#    #+#             */
+/*   Updated: 2022/11/16 17:40:15 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ class Zombie {
 	
 private:
 
-	std::string name;
+	std::string _name;
 
 public:
-
+	
 	Zombie( void );
 	~Zombie( void );
-	
+
 	void announce( void );
 	void setName(std::string name);
 };

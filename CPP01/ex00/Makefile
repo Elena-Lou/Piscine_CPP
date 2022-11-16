@@ -5,7 +5,7 @@ SRCS = Zombie.cpp \
 
 CPPFLAGS = -MMD -MF $(@:.o=.d)
 
-INC = ./
+INC = ./include/
 
 NAME = zombie
 
