@@ -6,12 +6,11 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:54:34 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 16:27:57 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:55:11 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
-
+#include "./include/Zombie.h"
 
 int	main( void ) {
 	Zombie* Arnold;
