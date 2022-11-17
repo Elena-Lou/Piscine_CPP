@@ -7,11 +7,11 @@ CPPFLAGS = -MMD -MF $(@:.o=.d)
 
 INC = ./include/
 
-NAME = reference
+NAME = violence
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
 
 OBJS_DIR = ./objs/
 

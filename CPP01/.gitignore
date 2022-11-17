@@ -27,6 +27,7 @@ objs/*
 zombie
 horde
 reference
+violence
 *.exe
 *.out
 *.app

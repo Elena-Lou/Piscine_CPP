@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:28:52 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/16 14:31:39 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/17 12:35:13 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ class Weapon {
 	
 private:
 
-	std::string type;
+	std::string _type;
 
 public:
 
 	Weapon( void );
+	Weapon( std::string type );
 	~Weapon( void );
 	
-	void setType( void );
+	void setType( std::string type );
+	const std::string& getType( void ) const;
 };
 
 #endif
