@@ -28,6 +28,7 @@ zombie
 horde
 reference
 violence
+sed
 *.exe
 *.out
 *.app
@@ -62,3 +63,4 @@ dkms.conf
 *test
 *.log
 !srcs/test/
+*.replace
