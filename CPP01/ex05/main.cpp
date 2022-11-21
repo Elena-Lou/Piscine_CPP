@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:05 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 18:06:45 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:18:17 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 #include <iostream>
 #include <string>
 
-int main (int ac, char** av) {
+int main ( void ) {
 
 	std::string level;
 	Harl 		harl;
 
-	if (ac != 2)
-		return 1;
+	while (1)
+	{
+		if (std::cin.eof())
+			return 1;
+		std::cout << "\nType a level for Harl to make a comment : DEBUG, INFO, WARNING or ERROR" << std::endl;
+		getline(std::cin, level);
+		if (level != "EXIT")
+			harl.complain(level);
+		else
+			return 0;
+	}
 
-	level = av[1];
-	if (level != "exit")
-		harl.complain(level);
-	else
-		return 0;
 }
