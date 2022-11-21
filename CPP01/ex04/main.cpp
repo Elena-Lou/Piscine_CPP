@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:47 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 16:22:36 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/21 16:36:15 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,10 @@ int main( int ac, char **av ) {
 	(void)av;
 	if (ac != 4)
 	{
-		std::cout << "Usage: ./sed filename string_to_be_replaced string_to_replace" << std::endl;
-		return 0;
+		std::cerr << "Usage: ./sed filename string_to_be_replaced string_to_replace" << std::endl;
+		return 1;
 	}
 	std::string 	line;
-	std::string		token;
 	std::string 	viserys = av[2];
 	std::string 	rhaenyra = av[3];
 	std::ifstream 	infile;
@@ -33,9 +32,19 @@ int main( int ac, char **av ) {
 	
 
 	infile.open(av[1], std::ifstream::in);
+	if (!infile)
+	{
+		std::cerr << "Open error" << std::endl;
+		return 1;
+	}
 	outfileName = av[1];
 	outfileName += ".replace";
 	outfile.open(outfileName.c_str(), std::ofstream::out | std::ofstream::trunc);
+	if (!outfile)
+	{
+		std::cerr << "Open error" << std::endl;
+		return 1;
+	}
 		while (getline(infile, line))
 		{
 			strIndex = 0;
