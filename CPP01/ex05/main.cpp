@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:05 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 18:18:17 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:27:14 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main ( void ) {
 			return 1;
 		std::cout << "\nType a level for Harl to make a comment : DEBUG, INFO, WARNING or ERROR" << std::endl;
 		getline(std::cin, level);
-		if (level != "EXIT")
+		if (level != "exit")
 			harl.complain(level);
 		else
 			return 0;
