@@ -6,14 +6,13 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:24:52 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/17 14:14:46 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:32:36 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
-#include "Weapon.h"
 
 int	main( void ) {
 	Weapon axe = Weapon("axe");

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:31:54 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/17 13:41:50 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:04:24 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Weapon::Weapon ( std::string type ) {
 	return ;
 }
 
-void Weapon::setType ( std::string type) {
+void Weapon::setType ( std::string type ) {
 	
 	this->_type = type;
 }

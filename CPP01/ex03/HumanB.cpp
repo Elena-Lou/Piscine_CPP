@@ -6,14 +6,14 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 18:01:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 16:36:59 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:30:51 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-#include "./include/HumanB.hpp"
-#include "./include/Weapon.hpp"
+#include "HumanB.hpp"
+#include "Weapon.hpp"
 
 HumanB::HumanB (std::string name) : _weapon(NULL) {
 

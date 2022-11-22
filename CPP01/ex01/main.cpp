@@ -6,11 +6,11 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 16:34:04 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 16:36:33 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:29:38 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/Zombie.h"
+#include "Zombie.h"
 #include <ctype.h>
 #include <stdlib.h>
 

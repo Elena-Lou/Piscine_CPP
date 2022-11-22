@@ -5,7 +5,7 @@ SRCS = Zombie.cpp \
 
 CPPFLAGS = -MMD -MF $(@:.o=.d)
 
-INC = ./include/
+INC = -I ./include/
 
 NAME = zombie
 
@@ -24,7 +24,7 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS) -I $(INC)
+	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS) $(INC)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
