@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 16:54:22 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/22 12:32:46 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 15:29:46 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ void Harl::_debug ( void ) {
 	std::cout << "I am Debug-Harl" << std::endl;
 }
 
-void Harl::_warning ( void ) {
-	
-	std::cout << "I am Warning-Harl" << std::endl;
-}
-
 void Harl::_info ( void ) {
 	
 	std::cout << "I am Info-Harl" << std::endl;
+}
+
+void Harl::_warning ( void ) {
+	
+	std::cout << "I am Warning-Harl" << std::endl;
 }
 
 void Harl::_error ( void ) {
