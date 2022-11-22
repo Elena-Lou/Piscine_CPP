@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:47 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/21 18:29:34 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:16:48 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int main( int ac, char **av ) {
 			{
 				line.erase(strIndex, viserys.length());
 				line.insert(strIndex, rhaenyra);
+				strIndex += rhaenyra.length();
 			}
 		} while (strIndex != std::string::npos);
 		outfile << line << std::endl;
