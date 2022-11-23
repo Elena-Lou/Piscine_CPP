@@ -6,12 +6,14 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:11:28 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/23 17:54:14 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:16:06 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+int const Fixed::_bitsNb = 8;
 
 Fixed::Fixed ( void ) : _fixedPointNbValue(0) {
 
