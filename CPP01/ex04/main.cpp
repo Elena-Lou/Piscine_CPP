@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:43:47 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/22 12:16:48 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/23 09:28:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ int main( int ac, char **av ) {
 	std::ifstream 	infile;
 	std::ofstream 	outfile;
 
+	if (viserys.empty())
+	{
+		std::cerr << "Invalid arguments" << std::endl;
+		return 1;
+	}
+	
 	infile.open(av[1], std::ifstream::in);
 	if (!infile)
 	{
