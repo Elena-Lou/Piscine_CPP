@@ -25,6 +25,7 @@ objs/*
 
 # Executables
 canonicalForm
+usefulClass
 *.exe
 *.out
 *.app
