@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:11:28 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/23 18:16:06 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:38:05 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int const Fixed::_bitsNb = 8;
 
-Fixed::Fixed ( void ) : _fixedPointNbValue(0) {
+Fixed::Fixed ( void ) : _fixedPoint(0) {
 
 	std::cout << "Default Constructor called" << std::endl;
 	return ;	
@@ -31,7 +31,7 @@ Fixed::Fixed ( Fixed const & src ) {
 int Fixed::getRawBits ( void ) const {
 	
 	std::cout << "getRawBits member function called" << std::endl;
-	return this->_fixedPointNbValue;
+	return this->_fixedPoint;
 }
 
 Fixed &	Fixed::operator=( Fixed const & rhs ) {
@@ -40,7 +40,7 @@ Fixed &	Fixed::operator=( Fixed const & rhs ) {
 	
 	if (this != &rhs)
 	{
-		this->_fixedPointNbValue = rhs.getRawBits();
+		this->_fixedPoint = rhs.getRawBits();
 	}
 	return *this;
 }
