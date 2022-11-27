@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:11:28 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/27 19:04:31 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/27 19:40:37 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include <cmath>
 
 int const Fixed::_bitsNb = 8;
+
+
+/* constructors */
 
 Fixed::Fixed ( void ) : _fixedPoint () {
 	
@@ -38,6 +41,8 @@ Fixed::Fixed ( Fixed const & src ) {
 	*this = src;
 	return ;
 }
+
+/* accessors */
 
 int Fixed::getRawBits ( void ) const {
 	
@@ -146,6 +151,8 @@ Fixed	Fixed::operator--( int ) {
 	return tmp;
 }
 
+/* member functions : conversions */
+
 float Fixed::toFloat ( void ) const {
 
 	float nbFloat;
@@ -162,6 +169,8 @@ int Fixed::toInt ( void ) const {
 	return nbInt;
 }
 
+
+/* static functions : min / max */
 Fixed & Fixed::min( Fixed & f1, Fixed & f2) {
 	
 	if (f1 < f2)
@@ -194,10 +203,14 @@ const Fixed & Fixed::max( Fixed const & f1, Fixed const & f2) {
 		return f2;
 }
 
+/* destructors */
+
 Fixed::~Fixed ( void ) {
 	
 	return ;
 }
+
+/* insertion operator overload to print the converted value */
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs) {
 	
