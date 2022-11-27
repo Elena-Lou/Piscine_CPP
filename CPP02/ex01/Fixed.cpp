@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:11:28 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/25 14:48:36 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:04:50 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed ( void ) : _fixedPoint(0) {
 Fixed::Fixed ( int const n ) {
 
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixedPoint = n * (1 << Fixed::_bitsNb);
+	this->_fixedPoint = n << Fixed::_bitsNb;
 	return ;	
 }
 
