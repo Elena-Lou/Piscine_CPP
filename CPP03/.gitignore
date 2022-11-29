@@ -25,6 +25,7 @@ objs/*
 
 # Executables
 clapTrap
+scavTrap
 *.exe
 *.out
 *.app
