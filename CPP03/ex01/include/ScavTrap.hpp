@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:59:48 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/29 14:39:44 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:36:14 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ public:
 	~ScavTrap( void );
 
 	ScavTrap & operator=( ScavTrap const & rhs );
-	void guardGate( void );	
+	void guardGate( void );
+	void attack( const std::string& target );
 };
 
 #endif
