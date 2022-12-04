@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:42:18 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/29 16:12:41 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:13:13 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,14 @@ public:
 	~FragTrap();
 
 	FragTrap & operator=( FragTrap const & rhs );
-	
+
+	unsigned int getHP( void ) const;
+	unsigned int getEP( void ) const;
+	unsigned int getAD( void ) const;
+		
 	void highFiveGuys( void );
 };
+
+std::ostream & operator<<( std::ostream & out, FragTrap const & rhs);
 
 #endif
