@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:51:26 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 14:12:50 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:30:17 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ FragTrap::FragTrap ( void ) : ClapTrap () {
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30;
-	std::cout << "FragTrap Default Constructor called" << std::endl;
+	std::cout << "[FragTrap] Default Constructor called" << std::endl;
 	return;
 }
 
@@ -39,7 +39,6 @@ FragTrap::FragTrap ( std::string name ) : ClapTrap ( name ) {
 FragTrap::FragTrap ( FragTrap const & src ) : ClapTrap ( src ) {
 
 	std::cout << "FragTrap calls ClapTrap copy constructor" << std::endl;
-
 	return ;
 }
 

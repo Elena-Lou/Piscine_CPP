@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:20:15 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 14:01:41 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:25:16 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 
 ClapTrap::ClapTrap ( void ) : _name("Machin"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 
-	std::cout << "Default Constructor" << std::endl;
+	std::cout << "[ClapTrap] Default Constructor" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap ( std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	
-	std::cout << "Constructor is called" << std::endl;
+	std::cout << "[ClapTrap] Constructor is called" << std::endl;
 	return ;
 }
 
 ClapTrap::ClapTrap ( ClapTrap const & src) {
 	
-	std::cout << "Copy Constructor is called" << std::endl;
+	std::cout << "[ClapTrap] Copy Constructor is called" << std::endl;
 	*this = src;
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:59:48 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 14:13:29 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:32:10 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ public:
 };
 
 std::ostream & operator<<( std::ostream & out, ScavTrap const & rhs);
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:58:54 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 14:09:31 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:39:13 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap ( void ) : ClapTrap () {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
 	this->_attackDamage = 20;
-	std::cout << "ScavTrap Default Constructor called" << std::endl;
+	std::cout << "ScavTrap Default Constructor" << std::endl;
 	return;
 }
 
@@ -52,8 +52,8 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 
 void ScavTrap::attack ( const std::string& target ) {
 	
-	ClapTrap::attack( target );
 	std::cout << "\"You, filthy mud-blood\"" << std::endl;
+	ClapTrap::attack( target );
 }
 
 unsigned int ScavTrap::getHP ( void ) const {

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:58:54 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 13:53:45 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:39:30 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ ScavTrap & ScavTrap::operator=( ScavTrap const & rhs ) {
 
 void ScavTrap::attack ( const std::string& target ) {
 	
-	ClapTrap::attack( target );
 	std::cout << "\"You, filthy mud-blood\"" << std::endl;
+	ClapTrap::attack( target );
 }
 
 unsigned int ScavTrap::getHP ( void ) const {
