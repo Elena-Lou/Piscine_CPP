@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:20:15 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 10:48:17 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:27:48 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ ClapTrap::ClapTrap ( std::string name) : _name(name), _hitPoints(10), _energyPoi
 
 ClapTrap::ClapTrap ( ClapTrap const & src) {
 	
-	*this = src;
 	std::cout << "[Clap Trap] Copy Constructor is called, ";
 	std::cout << this->_name << "[class ClapTrap] is created" << std::endl;
+	*this = src;
 	return ;
 }
 
@@ -59,9 +59,14 @@ ClapTrap::~ClapTrap ( void ) {
 
 void ClapTrap::attack ( const std::string& target ) {
 	
-	if (this->_hitPoints == 0 || this->_energyPoints == 0)
+	if (this->_hitPoints == 0)
 	{
-		std::cout << this->_name << " is exhausted" << std::endl;
+		std::cout << this->_name << " is dead. " << std::endl;
+		return ;
+	}
+	else if (this->_energyPoints == 0)
+	{
+		std::cout << this->_name << " is exhausted." << std::endl;
 		return ;
 	}
 	else
@@ -76,9 +81,14 @@ void ClapTrap::attack ( const std::string& target ) {
 
 void ClapTrap::beRepaired ( unsigned int amount ) {
 	
-	if (this->_hitPoints == 0 || this->_energyPoints == 0)
+	if (this->_hitPoints == 0)
 	{
-		std::cout << this->_name << " is exhausted" << std::endl;
+		std::cout << this->_name << " is dead. " << std::endl;
+		return ;
+	}
+	else if (this->_energyPoints == 0)
+	{
+		std::cout << this->_name << " is exhausted." << std::endl;
 		return ;
 	}
 	else

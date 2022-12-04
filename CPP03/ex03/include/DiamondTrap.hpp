@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 17:54:28 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 11:30:15 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:37:29 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,14 @@ public:
 
 	DiamondTrap & operator=( DiamondTrap const & rhs );
 	
+	unsigned int getHP( void ) const;
+	unsigned int getEP( void ) const;
+	unsigned int getAD( void ) const;
+	
 	void attack( std::string target );
 	void whoAmI( void );
 };
+
+std::ostream & operator<<( std::ostream & out, DiamondTrap const & rhs);
 
 #endif

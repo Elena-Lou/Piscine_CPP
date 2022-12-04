@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 17:56:21 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 11:31:27 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:35:51 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 DiamondTrap::DiamondTrap ( void ) : ClapTrap ("Shiny_Machin_clap_name"), ScavTrap (), FragTrap () {
 
-	this->_energyPoints = 50;
 	std::cout << "[DiamonTrap] Default Constructor called" << std::endl;
+	this->_energyPoints = 50;
 	return ;	
 }
 
@@ -58,6 +58,21 @@ DiamondTrap & DiamondTrap::operator=( DiamondTrap const & rhs ) {
 	return *this;
 }
 
+unsigned int DiamondTrap::getHP ( void ) const {
+	
+	return this->_hitPoints;
+}
+
+unsigned int DiamondTrap::getEP ( void ) const {
+	
+	return this->_energyPoints;
+}
+
+unsigned int DiamondTrap::getAD ( void ) const {
+	
+	return this->_attackDamage;
+}
+
 void DiamondTrap::attack ( std::string target) {
 
 	ScavTrap::attack(target);
@@ -78,8 +93,11 @@ DiamondTrap::~DiamondTrap ( void ) {
 	
 }
 
-std::ostream & operator<<( std::ostream & out, DiamondTrap const & rhs ) {
-	
-	out << rhs.getName();
+std::ostream & operator<<( std::ostream & out, DiamondTrap const & rhs) {
+
+	out << "HP : " << rhs.getHP() << "\n";
+	out << "EP : " << rhs.getEP() << "\n";
+	out << "AD : " << rhs.getAD() << std::endl;
+
 	return out;
 }

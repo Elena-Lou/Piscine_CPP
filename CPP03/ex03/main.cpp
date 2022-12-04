@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:21:10 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 11:19:52 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:41:41 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,21 @@ int	main( void ) {
 	d1.highFiveGuys();
 	d1.attack("Franck");
 	d1.beRepaired(5);
+	std::cout << "d1 : " << d1 << std::endl;
 	
 	std::cout << "\n-------------\n" << std::endl;
 	
 	d2.attack("Machin");
 	d2.takeDamage(5);
 	d2.beRepaired(15);
+	std::cout << "d2 : " << d2 << std::endl;
 	
 	std::cout << "\n-------------\n" << std::endl;
 	
 	d3.attack("Maurice");
 	d3.takeDamage(100);
 	d3.highFiveGuys();
+	std::cout << "d3 : " << d3 << std::endl;
 	
 	std::cout << "\n-------------\n" << std::endl;
 	
@@ -76,8 +79,14 @@ int	main( void ) {
 	d4.attack("bob");
 	d4.guardGate();
 	d4.highFiveGuys();
+	std::cout << "d4 : " << d4 << std::endl;
 
 	std::cout << "\n-------------\n" << std::endl;
+
+	DiamondTrap d5(d2);
+	std::cout << "d5 : " << d5 << std::endl;
+
+	
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 19:59:48 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 11:30:24 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:32:16 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,15 @@ public:
 	virtual ~ScavTrap( void );
 
 	ScavTrap & operator=( ScavTrap const & rhs );
+
+	unsigned int getHP( void ) const;
+	unsigned int getEP( void ) const;
+	unsigned int getAD( void ) const;
+	
 	void guardGate( void );
 	void attack( const std::string& target );
 };
+
+std::ostream & operator<<( std::ostream & out, ScavTrap const & rhs);
 
 #endif

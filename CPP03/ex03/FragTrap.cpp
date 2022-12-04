@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:51:26 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/01 10:59:11 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 14:31:17 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 #include <iostream>
 
-FragTrap::FragTrap ( void ) {
+FragTrap::FragTrap ( void ) : ClapTrap () {
 	
 	this->_name = "Frag Machin";
 	this->_hitPoints = 100;
@@ -37,10 +37,7 @@ FragTrap::FragTrap ( std::string name ) : ClapTrap ( name ) {
 
 FragTrap::FragTrap ( FragTrap const & src ) : ClapTrap ( src ) {
 
-	std::cout << "[FragTrap] called ClapTrap copy constructor" << std::endl;
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
+	std::cout << "[FragTrap] calls ClapTrap copy constructor" << std::endl;
 	return ;
 }
 
@@ -51,11 +48,31 @@ FragTrap & FragTrap::operator=( FragTrap const & rhs ) {
 	return *this;
 }
 
+unsigned int FragTrap::getHP ( void ) const {
+	
+	return this->_hitPoints;
+}
+
+unsigned int FragTrap::getEP ( void ) const {
+	
+	return this->_energyPoints;
+}
+
+unsigned int FragTrap::getAD ( void ) const {
+	
+	return this->_attackDamage;
+}
+
 void FragTrap::highFiveGuys ( void ) {
 
-	if (this->_hitPoints == 0 || this->_energyPoints == 0)
+	if (this->_hitPoints == 0)
 	{
-		std::cout << "Aaaaaaaarrrrrrggghhhh don't leave me hangin'...!" << std::endl;
+		std::cout << this->_name << " is dead. " << std::endl;
+		return ;
+	}
+	else if (this->_energyPoints == 0)
+	{
+		std::cout << "AAAAARRRRrrrrrggggggghhh don't leave me hangin'...!" << std::endl;
 		return ; 
 	}
 	else
@@ -70,6 +87,14 @@ FragTrap::~FragTrap ( void ) {
 	
 	std::cout << this->_name << "[class FragTrap] exploded" << std::endl;
 	return ;
-	
+}
+
+std::ostream & operator<<( std::ostream & out, FragTrap const & rhs) {
+
+	out << "HP : " << rhs.getHP() << "\n";
+	out << "EP : " << rhs.getEP() << "\n";
+	out << "AD : " << rhs.getAD() << std::endl;
+
+	return out;
 }
 
