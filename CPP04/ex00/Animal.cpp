@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:01:55 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/03 11:41:04 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 15:28:58 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 Animal::Animal ( void ) {
     
     std::cout << "[Class Animal] Default Constructor" << std::endl;
-    this->type = "T-Rex";
+    this->type = "Cow";
     return ;
 }
 
@@ -30,7 +30,7 @@ Animal::Animal ( Animal const & src ) {
 
 Animal & Animal::operator=( Animal const & rhs ) {
     
-    std::cout << "[Class Animal Assignment Operator Overload" << std::endl;
+    std::cout << "[Class Animal] Assignment Operator Overload" << std::endl;
     if (this != &rhs)
         this->type = rhs.type;
     return *this;

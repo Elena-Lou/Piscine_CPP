@@ -1,7 +1,9 @@
 SRCS = main.cpp \
 		Animal.cpp \
 		Cat.cpp \
-		Dog.cpp 
+		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp 
 
 CPPFLAGS = -MMD -MF $(@:.o=.d)
 
