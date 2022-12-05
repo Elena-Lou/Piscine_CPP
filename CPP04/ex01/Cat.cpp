@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:24:33 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 15:56:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:01:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ Cat::Cat ( Cat const & src ) : Animal ( src ){
 
     std::cout << "[Class Cat] Copy Constructor" << std::endl;
     *this = src;
+    this->brain = new Brain();
+    *(this->brain) = *(src.brain);
     return ;
 }
 
@@ -34,7 +36,11 @@ Cat & Cat::operator=( Cat const & rhs ) {
     
     std::cout << "[Class Cat] Assignment Operator Overload" << std::endl;
     if (this != &rhs )
+    {
     	this->type = rhs.type;
+        this->brain = new Brain();
+        *(this->brain) = *(rhs.brain);
+    }
     return *this;
 }
 

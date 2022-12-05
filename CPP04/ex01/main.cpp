@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:37:04 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 15:57:32 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:43:16 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,37 @@
 
 int main ( void ) {
 
-    Animal* Praline = new Cat();
-    Animal* Tyra = new Dog();
-    Animal* Paquerette = new Animal();
+    // Animal* Praline = new Cat();
+    // Animal* Tyra = new Dog();
+    // Animal* Paquerette = new Animal();
 
-    std::cout << Praline->getType() << std::endl;
-    std::cout << Tyra->getType() << std::endl;
-    std::cout << Paquerette->getType() << std::endl;
+    Dog     Melba;
 
-    Praline->makeSound();
-    Tyra->makeSound();
-    Paquerette->makeSound();
+    // std::cout << Praline->getType() << std::endl;
+    // std::cout << Tyra->getType() << std::endl;
+    // std::cout << Paquerette->getType() << std::endl;
+    
+    std::cout << Melba.getIdea(0) << std::endl;
 
-    delete Praline;
-    delete Paquerette;;
-    delete Tyra;
+    // Praline->makeSound();
+    // Tyra->makeSound();
+    // Paquerette->makeSound();
+    Melba.makeSound();
+
+    for ( int i = 0; i < 10; i++)
+    {
+        Melba.getBrain()->setIdea("Alex", i);
+        std::cout << "Melba " << Melba.getIdea(i) << std::endl;
+    }
+    
+    Dog Nosaure(Melba);
+    Nosaure.getBrain()->setIdea("Elena", 0);
+    std::cout << "Melba : " << Melba.getIdea(0) << std::endl;
+    std::cout << "Nosaure : " << Nosaure.getIdea(0) << std::endl;
+
+    // delete Praline;
+    // delete Paquerette;;
+    // delete Tyra;
 		
     return 0;
 }

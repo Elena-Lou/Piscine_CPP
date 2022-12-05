@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:34:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 15:57:02 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:39:31 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,31 @@ Dog::Dog ( Dog const & src ) : Animal ( src ) {
     
     std::cout << "[Class Dog] Copy Constructor" << std::endl;
     *this = src;
+    this->brain = new Brain();
+    *(this->brain) = *(src.brain);
     return;
 
+}
+
+Brain* Dog::getBrain ( void ) const {
+
+    return this->brain;
+}
+
+std::string Dog::getIdea ( int i ) const {
+
+    return this->brain->getIdea(i);
 }
 
 Dog & Dog::operator=( Dog const & rhs ) {
     
     std::cout << "[Class Dog] Assignment Operator Overload" << std::endl;
     if (this != &rhs )
+    {
     	this->type = rhs.type;
+        this->brain = new Brain();
+        *(this->brain) = *(rhs.brain);
+    }
     return *this;
 }
 

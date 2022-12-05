@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:59:26 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 15:52:18 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:20:50 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ public:
 
     void makeSound( void ) const;
     std::string getType ( void ) const;
+
+    std::string  getIdea( int i ) const;
+    Brain* getBrain( void ) const;
 };
 
 #endif
