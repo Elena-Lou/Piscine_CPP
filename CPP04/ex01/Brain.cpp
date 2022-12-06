@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:49:08 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/06 15:03:08 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:54:27 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,25 @@ Brain::Brain ( void ) {
 	
 	std::cout << "[Brain class] Default Constructor" << std::endl;
 	return ;
+}
+
+Brain::Brain( Brain const & src ) {
+
+	std::cout << "[Brain class] Copy Constructor" << std::endl;
+	*this = src;
+	return;	
+}
+
+Brain & Brain::operator=( Brain const & rhs ) {
+
+	if (this != &rhs)
+	{
+		for (int i = 0; i < 100; i++)
+		{
+			this->ideas[i] = rhs.ideas[i];
+		}
+	}
+	return *this;
 }
 
 std::string Brain::getIdea ( int i ) const {
