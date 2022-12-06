@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:34:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/05 17:39:31 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:46:58 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,22 @@ Dog::Dog ( void ) : Animal() {
 Dog::Dog ( Dog const & src ) : Animal ( src ) {
     
     std::cout << "[Class Dog] Copy Constructor" << std::endl;
-    *this = src;
     this->brain = new Brain();
     *(this->brain) = *(src.brain);
+    *this = src;
     return;
-
 }
 
-Brain* Dog::getBrain ( void ) const {
+void Dog::setIdeas ( std::string ideas ) {
+	
+	this->brain->setIdeas(ideas);
+	return ;
+}
 
-    return this->brain;
+void Dog::setIdea ( std::string idea, int i ) {
+	
+	this->brain->setIdea(idea, i);
+	return ;
 }
 
 std::string Dog::getIdea ( int i ) const {
@@ -49,9 +55,13 @@ Dog & Dog::operator=( Dog const & rhs ) {
     if (this != &rhs )
     {
     	this->type = rhs.type;
-        this->brain = new Brain();
-        *(this->brain) = *(rhs.brain);
-    }
+        if (this->brain != NULL)
+        {
+        	delete this->brain;
+            this->brain = new Brain();
+        	*(this->brain) = *(rhs.brain);
+        }
+   }
     return *this;
 }
 

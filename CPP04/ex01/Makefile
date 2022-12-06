@@ -8,7 +8,7 @@ CPPFLAGS = -MMD -MF $(@:.o=.d)
 
 INC = -I ./include/
 
-NAME = animal
+NAME = brainzz
 
 CXX = c++
 

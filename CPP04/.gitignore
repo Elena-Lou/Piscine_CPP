@@ -25,6 +25,7 @@ objs/*
 
 # Executables
 animal
+brainzz
 *.exe
 *.out
 *.app

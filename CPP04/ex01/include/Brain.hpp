@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:48:25 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/05 17:22:34 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:55:23 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ public:
 	Brain();
 	~Brain();
 
-	void setIdea( std::string idea, int i );
+	void		setIdeas( std::string ideas );
+	void 		setIdea( std::string idea, int i );
 	std::string getIdea( int i ) const;
+	
 	
 	
 };
