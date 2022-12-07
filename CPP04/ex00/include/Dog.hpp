@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:59:26 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/03 11:51:32 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:31:18 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ private:
 
 protected:
 
-    std::string type;
     
 public:
 
@@ -31,7 +30,6 @@ public:
     Dog & operator=( Dog const & rhs );
 
     void makeSound( void ) const;
-    std::string getType ( void ) const;
 };
 
 #endif
