@@ -26,6 +26,7 @@ objs/*
 # Executables
 bureaucrat
 form
+*_shrubbery
 *.exe
 *.out
 *.app
