@@ -27,6 +27,8 @@ objs/*
 bureaucrat
 form
 *_shrubbery
+diverseForm
+intern
 *.exe
 *.out
 *.app
