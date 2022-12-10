@@ -14,16 +14,56 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main ( void ) {
 
-	try 
+	// try 
+	// {
+		
+	// Bureaucrat Bob("Bob", 40);
+	// ShrubberyCreationForm Test("garden");
+
+	// Test.execute(Bob);
+	// }
+	// catch (std::exception & e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+
+	// try 
+	// {
+		
+	// Bureaucrat Bob("Bob", 40);
+	// RobotomyRequestForm Test("Marcel");
+
+	// Test.execute(Bob);
+	// }
+	// catch (std::exception & e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+
+	// try 
+	// {
+		
+	// Bureaucrat Bob("Bob", 1);
+	// PresidentialPardonForm Test("Marcel");
+
+	// Test.execute(Bob);
+	// }
+	// catch (std::exception & e)
+	// {
+	// 	std::cout << e.what() << std::endl;
+	// }
+
+try 
 	{
 		
-	Bureaucrat Bob("Bob", 40);
+	Bureaucrat Bob("Bob", 1);
 	ShrubberyCreationForm Test("garden");
 
-	Test.execute(Bob);
+	Bob.signForm(Test);
 	}
 	catch (std::exception & e)
 	{
@@ -33,14 +73,30 @@ int main ( void ) {
 	try 
 	{
 		
-	Bureaucrat Bob("Bob", 40);
+	Bureaucrat Bob("Bob", 1);
 	RobotomyRequestForm Test("Marcel");
 
-	Test.execute(Bob);
+	Bob.signForm(Test);
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	try 
+	{
+		
+	Bureaucrat Bob("Bob", 1);
+	PresidentialPardonForm Test("Marcel");
+
+	Bob.signForm(Test);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	
+
 	return 0;	
-}
+} 

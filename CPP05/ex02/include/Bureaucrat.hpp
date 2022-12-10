@@ -43,6 +43,7 @@ public:
 	void			promotion( void );
 	void 			demotion( void );
 	void			signForm(AForm & formToSign );
+	void			executeForm(AForm const & form);
 
 	class GradeTooHighException : public std::exception
 	{

@@ -111,10 +111,10 @@ std::ostream & operator<<( std::ostream & out, AForm const & rhs ) {
 
 const char* AForm::GradeTooHighException::what( void ) const throw() {
 	
-	return ("This grade is too high to perform this task");
+	return (" grade is too high to perform this task");
 }
 
 const char* AForm::GradeTooLowException::what( void ) const throw() {
 	
-	return ("This grade is too low to perform this task");
+	return (" grade is too low to perform this task");
 }

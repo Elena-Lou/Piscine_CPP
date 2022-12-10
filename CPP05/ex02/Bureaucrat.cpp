@@ -69,7 +69,7 @@ void Bureaucrat::demotion ( void ) {
 	return ;
 }
 
-void Bureaucrat::signForm( AForm & formToSign ) {
+void Bureaucrat::signForm ( AForm & formToSign ) {
 	
 	if (formToSign.getSignStatus() == "signed")
 	{
@@ -80,12 +80,25 @@ void Bureaucrat::signForm( AForm & formToSign ) {
 		try 
 		{
 			formToSign.beSigned(*this);
+			std::cout << this->_name << " signed " << formToSign.getName() << std::endl;
 		}
 		catch (std::exception & e)
 		{
-			std::cout << this->_name << " couldn't sign form because " << e.what() <<  std::endl;
+			std::cout << this->_name << " couldn't sign form because " << "their" << e.what() <<  std::endl;
 		}
-		std::cout << this->_name << " signed " << formToSign.getName() << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm ( AForm const & form ) {
+
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << this->_name << " couldn't execute " << form.getName() << " because " << "their" << e.what() << std::endl;
 	}
 }
 

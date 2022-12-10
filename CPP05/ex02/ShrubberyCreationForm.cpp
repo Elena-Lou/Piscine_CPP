@@ -48,7 +48,6 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 		throw AForm::GradeTooLowException();
 	}
 	
-	std::cout << "After throw" << std::endl;
 	outName = this->getTarget();
 	outName += "_shrubbery";
 	outfile.open(outName.c_str(), std::ofstream::out | std::ofstream::trunc);
