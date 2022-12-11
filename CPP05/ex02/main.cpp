@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:36:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 17:29:52 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:04:07 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,85 +18,48 @@
 
 int main ( void ) {
 
-	// try 
-	// {
-		
-	// Bureaucrat Bob("Bob", 40);
-	// ShrubberyCreationForm Test("garden");
-
-	// Test.execute(Bob);
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	// try 
-	// {
-		
-	// Bureaucrat Bob("Bob", 40);
-	// RobotomyRequestForm Test("Marcel");
-
-	// Test.execute(Bob);
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-	// try 
-	// {
-		
-	// Bureaucrat Bob("Bob", 1);
-	// PresidentialPardonForm Test("Marcel");
-
-	// Test.execute(Bob);
-	// }
-	// catch (std::exception & e)
-	// {
-	// 	std::cout << e.what() << std::endl;
-	// }
-
-try 
-	{
-		
-	Bureaucrat Bob("Bob", 1);
-	ShrubberyCreationForm Test("garden");
-
-	Bob.signForm(Test);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
 	try 
 	{
-		
-	Bureaucrat Bob("Bob", 1);
-	RobotomyRequestForm Test("Marcel");
+		Bureaucrat Bob("Bob", 40);
+		ShrubberyCreationForm Test("garden");
 
-	Bob.signForm(Test);
+	// Test.beSigned(Bob);
+		Test.execute(Bob);
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 
-	try 
-	{
-		
-	Bureaucrat Bob("Bob", 1);
-	PresidentialPardonForm Test("Marcel");
-
-	Bob.signForm(Test);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
+	std::cout << "\n--------------\n" << std::endl;
 	
+	try 
+	{
+		Bureaucrat Bob("Bob", 140);
+		RobotomyRequestForm Test("Marcel");
+
+		Test.beSigned(Bob);
+		Test.execute(Bob);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+
+	std::cout << "\n--------------\n" << std::endl;
+
+	try 
+	{
+		Bureaucrat Bob("Bob", 15);
+		PresidentialPardonForm Test("Marcel");
+
+		Test.beSigned(Bob);
+		Test.execute(Bob);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 
 	return 0;	
 } 

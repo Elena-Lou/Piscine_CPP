@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:47:22 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 17:23:41 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:06:16 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,11 @@ PresidentialPardonForm & PresidentialPardonForm::operator=( PresidentialPardonFo
 
 void PresidentialPardonForm::execute( Bureaucrat const & executor ) const {
 	
-	if (executor.getGrade() > this->getExecGrade())
+	if (this->getSignStatus() == "not signed")
+	{
+		throw AForm::FormNotSignedException();
+	}
+	else if (executor.getGrade() > this->getExecGrade())
 	{
 		throw AForm::GradeTooLowException();
 	}

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:47:48 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 17:22:27 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:06:22 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,11 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	std::ofstream	outfile;
 	std::string		outName;
 
-	if (executor.getGrade() > this->getExecGrade())
+	if (this->getSignStatus() == "not signed")
+	{
+		throw AForm::FormNotSignedException();
+	}
+	else if (executor.getGrade() > this->getExecGrade())
 	{
 		throw AForm::GradeTooLowException();
 	}

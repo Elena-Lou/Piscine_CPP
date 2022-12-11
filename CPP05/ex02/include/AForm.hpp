@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:37:44 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 16:13:40 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 17:51:35 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,13 @@ public:
 	{
 		public :
 
+			const char* what( void ) const throw();
+	};
+	
+	class FormNotSignedException : public std::exception
+	{
+		public :
+		
 			const char* what( void ) const throw();
 	};
 };

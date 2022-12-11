@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:47:36 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 17:34:47 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 18:06:19 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,11 @@ void RobotomyRequestForm::execute( Bureaucrat const & executor ) const {
 	
 	int random;
 	std::srand(time(NULL));
-	if (executor.getGrade() > this->getExecGrade())
+	if (this->getSignStatus() == "not signed")
+	{
+		throw AForm::FormNotSignedException();
+	}
+	else if (executor.getGrade() > this->getExecGrade())
 	{
 		throw AForm::GradeTooLowException();
 	}
