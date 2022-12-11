@@ -50,7 +50,7 @@ AForm & AForm::operator=( AForm const & rhs ) {
 
 AForm::~AForm ( void ) {
 	
-	std::cout << "[AForm] Destructor called" << std::endl;
+	std::cout << "[AForm] Destructor" << std::endl;
 	return ;
 }
 
@@ -102,7 +102,7 @@ void AForm::beSigned ( Bureaucrat & bureaucrat ) {
 std::ostream & operator<<( std::ostream & out, AForm const & rhs ) {
 
 	out << "AForm : " << rhs.getName();
-	out << " Status : " << rhs.getSignStatus() << "\n";
+	out << "\nStatus : " << rhs.getSignStatus() << "\n";
 	out << "Grade required to sign the form : " << rhs.getSignGrade() << "\n";
 	out << "Grade required to execute the form : " << rhs.getExecGrade();
 

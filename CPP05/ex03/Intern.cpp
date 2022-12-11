@@ -55,11 +55,15 @@ AForm* Intern::makeForm ( std::string form, std::string target ){
     {
         if (formName[i] == form)
         {
-            std::cout << formName[i] << std::endl;
             newForm = (*Forms[i])(target);
             return newForm;
         }
     }
-    std::cerr << "this form doesn't exist" << std::endl;
+    throw Intern::FormDoesNotExist();
     return NULL;
+}
+
+const char* Intern::FormDoesNotExist::what ( void ) const throw() {
+
+   return ("This form doesn't exist.\nAvailable forms are : \"shrubbery creation\", \"robotomy request\" and \"presidential pardon\"");
 }
