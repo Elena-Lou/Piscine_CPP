@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:36:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 13:11:38 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:59:48 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,40 @@
 
 int main ( void ) {
 
-	Bureaucrat* stagiaire;
+	Bureaucrat* intern;
+	Bureaucrat* boss;
 	Form*		f1;
 	
 	try 
 	{
-		stagiaire = new Bureaucrat("George", 15);
-
+		intern = new Bureaucrat("George", 150);
+		std::cout << *intern << std::endl;
 	}
 	catch(std::exception & e)
 	{
 		std::cout << e.what() << std::endl;	
 	}
-	std::cout << *stagiaire << std::endl;
+
+	std::cout << "\n--------------\n" << std::endl;
 	
 	try
 	{
-		f1 = new Form("f1", 20, 20);
+		f1 = new Form("f1", 20, 1);
 		std::cout << *f1 << std::endl;
-		// f1->beSigned(*stagiaire);
-		// std::cout << *f1 << std::endl;
+		f1->beSigned(*intern);
+		std::cout << *f1 << std::endl;
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << "\n--------------\n" << std::endl;
+
 	try
 	{
-		f1->beSigned(*stagiaire);
+		boss = new Bureaucrat("Boss", 2);
+		f1->beSigned(*boss);
 		std::cout << *f1 << std::endl;
 
 	}
@@ -50,19 +56,21 @@ int main ( void ) {
 	{
 		std::cout << e.what() << std::endl;
 	}
+
+	std::cout << "\n--------------\n" << std::endl;
+
 	try
 	{
-		stagiaire->signForm(*f1);
+		boss->signForm(*f1);
 	}
 	catch (std::exception & e)
 	{
 		std::cout << e.what() << std::endl;
 	}
 	
-	delete stagiaire;
-	delete f1;
-	
-
+	delete intern;
+	delete boss;
+	// delete f1;
 
 	return 0;	
 }

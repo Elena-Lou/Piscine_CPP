@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:37:10 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/08 18:44:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:55:00 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ Form & Form::operator=( Form const & rhs ) {
 
 Form::~Form ( void ) {
 	
-	std::cout << "[Form] Destructor called" << std::endl;
+	std::cout << "[Form] Destructor" << std::endl;
 	return ;
 }
 
@@ -90,13 +90,14 @@ void Form::beSigned ( Bureaucrat & bureaucrat ) {
 		if (bureaucrat.getGrade() > this->_signGrade)
 			throw Form::GradeTooLowException();
 		this->_signStatus = 1;
+		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
 	}
 }
 
 std::ostream & operator<<( std::ostream & out, Form const & rhs ) {
 
 	out << "Form : " << rhs.getName();
-	out << " Status : " << rhs.getSignStatus() << "\n";
+	out << "\nStatus : " << rhs.getSignStatus() << "\n";
 	out << "Grade required to sign the form : " << rhs.getSignGrade() << "\n";
 	out << "Grade required to execute the form : " << rhs.getExecGrade();
 
@@ -105,10 +106,10 @@ std::ostream & operator<<( std::ostream & out, Form const & rhs ) {
 
 const char* Form::GradeTooHighException::what( void ) const throw() {
 	
-	return ("This grade is too high to perform this task");
+	return ("The grade is too high to perform this task");
 }
 
 const char* Form::GradeTooLowException::what( void ) const throw() {
 	
-	return ("This grade is too low to perform this task");
+	return ("The grade is too low to perform this task");
 }

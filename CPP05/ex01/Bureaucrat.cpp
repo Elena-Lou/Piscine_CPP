@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:14:59 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 13:12:11 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:49:54 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ void Bureaucrat::signForm( Form & formToSign ) {
 		try 
 		{
 			formToSign.beSigned(*this);
+			std::cout << this->_name << " signed " << formToSign.getName() << std::endl;
 		}
 		catch (std::exception & e)
 		{
 			std::cout << this->_name << " couldn't sign form because " << e.what() <<  std::endl;
 		}
-		std::cout << this->_name << " signed " << formToSign.getName() << std::endl;
 	}
 }
 
@@ -102,10 +102,10 @@ std::ostream & operator<<( std::ostream & out, Bureaucrat const & rhs ) {
 
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 	
-	return ("This grade is too high");
+	return ("The grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 	
-	return ("This grade is too low");
+	return ("The grade is too low");
 }
