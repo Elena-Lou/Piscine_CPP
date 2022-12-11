@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:14:59 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/08 17:01:38 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:30:23 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ std::string Bureaucrat::getName ( void ) const {
 
 void Bureaucrat::promotion ( void ) {
 	
-	if (this->_grade == 150)
+	if (this->_grade == 1)
 		throw Bureaucrat::GradeTooHighException();
 	this->_grade--;
 	return ;
@@ -83,10 +83,10 @@ std::ostream & operator<<( std::ostream & out, Bureaucrat const & rhs ) {
 
 const char* Bureaucrat::GradeTooHighException::what( void ) const throw() {
 	
-	return ("This grade is too high");
+	return ("The grade is too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what( void ) const throw() {
 	
-	return ("This grade is too low");
+	return ("The grade is too low");
 }

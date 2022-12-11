@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:36:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/08 17:00:07 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/11 16:28:43 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,34 +21,58 @@ int main ( void ) {
 		Bureaucrat stagiaire("George", 150);
 
 		std::cout << stagiaire << std::endl;
+		
+		stagiaire.demotion();
 	}
 	catch(std::exception & e)
 	{
 		std::cout << e.what() << std::endl;	
 	}
-	
+
+	std::cout << "\n--------------\n" << std::endl;
+
 	try 
 	{
-		Bureaucrat s2("Maurice", 152);
+		Bureaucrat sb("Maurice", 152);
 
-		std::cout << s2 << std::endl;
+		std::cout << sb << std::endl;
+	}
+	catch(std::exception & e)
+	{
+		std::cout << e.what() << std::endl;	
+	}
+
+	std::cout << "\n--------------\n" << std::endl;
+
+	try
+	{
+		Bureaucrat b3("Maurice", 0);
+
+		std::cout << b3 << std::endl;
 	}
 	catch(std::exception & e)
 	{
 		std::cout << e.what() << std::endl;	
 	}
 	
+	std::cout << "\n--------------\n" << std::endl;
+
 	try
 	{
-		Bureaucrat s3("Maurice", 0);
+		Bureaucrat b4("Maurice", 1);
 
-		std::cout << s3 << std::endl;
+		std::cout << b4 << std::endl;
+		b4.demotion();
+		std::cout << b4 << std::endl;
+		b4.promotion();
+		std::cout << b4 << std::endl;
+		b4.promotion();
+		std::cout << b4 << std::endl;		
 	}
 	catch(std::exception & e)
 	{
 		std::cout << e.what() << std::endl;	
 	}
-
 
 	return 0;	
 }
