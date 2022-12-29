@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:59:26 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 14:26:00 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 15:09:37 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ private:
     Brain* brain;
     
 protected:
+
+    std::string type;
     
 public:
 
@@ -33,9 +35,10 @@ public:
     Dog & operator=( Dog const & rhs );
 
     void 			makeSound( void ) const;
+    std::string 	getType ( void ) const;
 	
-	void			setIdeas( std::string const & ideas );
-	void 			setIdea( std::string const & idea, int i );
+	void			setIdeas( std::string ideas );
+	void 			setIdea( std::string idea, int i );
     std::string		getIdea( int i ) const;
 };
 

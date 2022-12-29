@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:57:36 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 13:32:47 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:09:56 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
             AAnimal & operator=( AAnimal const & rhs );
     
     virtual void makeSound( void ) const = 0 ;
-            std::string getType ( void ) const = 0 ;
+    virtual std::string getType ( void ) const = 0 ;
     
 };
 

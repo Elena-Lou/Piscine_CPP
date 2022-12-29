@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:00:39 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 13:31:40 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/04 15:11:52 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ private:
 
 protected:
 
+    std::string type;
 
 public:
     
@@ -31,6 +32,7 @@ public:
     
     WrongCat & operator=( WrongCat const & rhs );
 
+    std::string getType( void ) const ;
     void makeSound( void ) const;
 };
 

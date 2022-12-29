@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:01:55 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 13:22:15 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/05 17:42:37 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 #include <iostream>
 #include <string>
 
-Animal::Animal ( void ) : type("Cow") {
+Animal::Animal ( void ) {
     
     std::cout << "[Class Animal] Default Constructor" << std::endl;
-    // this->type = "Cow";
+    this->type = "Cow";
     return ;
 }
 

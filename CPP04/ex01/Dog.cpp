@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:34:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 14:25:49 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:46:58 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,19 @@ Dog::Dog ( void ) : Animal() {
 Dog::Dog ( Dog const & src ) : Animal ( src ) {
     
     std::cout << "[Class Dog] Copy Constructor" << std::endl;
-    this->brain = new Brain(*src.brain);
+    this->brain = new Brain();
+    *(this->brain) = *(src.brain);
+    *this = src;
     return;
 }
 
-void Dog::setIdeas ( std::string const & ideas ) {
+void Dog::setIdeas ( std::string ideas ) {
 	
 	this->brain->setIdeas(ideas);
 	return ;
 }
 
-void Dog::setIdea ( std::string const & idea, int i ) {
+void Dog::setIdea ( std::string idea, int i ) {
 	
 	this->brain->setIdea(idea, i);
 	return ;
@@ -61,6 +63,12 @@ Dog & Dog::operator=( Dog const & rhs ) {
         }
    }
     return *this;
+}
+
+
+std::string Dog::getType ( void ) const {
+    
+    return this->type;
 }
 
 void Dog::makeSound ( void ) const {

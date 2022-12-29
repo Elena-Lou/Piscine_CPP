@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:34:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/07 13:31:08 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/03 12:45:24 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@ Dog & Dog::operator=( Dog const & rhs ) {
     if (this != &rhs )
     	this->type = rhs.type;
     return *this;
+}
+
+
+std::string Dog::getType ( void ) const {
+    
+    return this->type;
 }
 
 void Dog::makeSound ( void ) const {
