@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:14:19 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 21:49:10 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/08 22:30:10 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ int main() {
 				i++;
 		}
 		else if (input == "SEARCH")
-			std::cout << "search" << std::endl;
-			// phonebook.display_contact();
+			phonebook.get_contact();
 		else if (input == "EXIT")
 			return 0;
 	}
