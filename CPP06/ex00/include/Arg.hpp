@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/29 17:48:04 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:57:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
 	Arg & operator=( Arg const & rhs );
 
 	void setValue( char* value );
-	std::string getValue( void );
+	std::string getValue( void ) const ;
 };
 
 #endif

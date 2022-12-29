@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/29 18:28:39 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/29 18:58:00 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,27 @@ Arg::~Arg ( void ) {
 	return ;
 }
 
+Arg::Arg ( Arg const & src ) {
+	
+	*this = src;
+	return ;
+}
+
+Arg & Arg::operator=( Arg const & rhs ) {
+
+	if (this != &rhs)
+	{
+		this->_value = rhs._value;
+	}
+	return *this;
+}
+
 void Arg::setValue ( char* value ) {
 	
 	this->_value = value;
+}
+
+std::string Arg::getValue( void ) const {
+
+	return this->_value;
 }
