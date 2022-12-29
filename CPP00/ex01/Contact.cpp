@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:10:15 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/13 16:38:41 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/14 14:26:37 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <iostream>
 #include <string>
 
-Contact::Contact ( void ) {
-
+Contact::Contact ( void ) : _firstName(""), _lastName(""), _nickname(""), _phoneNb(""), _secret("") {
+	
     return ;
 }
 
