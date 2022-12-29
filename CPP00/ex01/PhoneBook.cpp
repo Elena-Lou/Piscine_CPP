@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:22:35 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/10 17:30:07 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/12 12:32:38 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PhoneBook::PhoneBook(void) {
 
 void PhoneBook::display_contact(int index) const {
 
-	std::cout << '|' << std::setfill(' ') << std::setw(9) << index;
+	std::cout << '|' << std::setw(9) << std::right << index;
 }
 
 void PhoneBook::display_contact(std::string data) const {
@@ -36,8 +36,7 @@ void PhoneBook::display_contact(std::string data) const {
 		data.resize(9);
 		data.push_back('.');
 	}
-	std::cout << std::setfill(' ') << std::setw(10);
-	std::cout << data;
+	std::cout << std::setw(10) << std::right << data;
 }
 
 int	PhoneBook::ft_check_index(std::string index) {
@@ -86,12 +85,18 @@ void PhoneBook::get_contact(void) {
 		std::cout << "Please enter the index of a valid contact" << std::endl;
 	} while (ft_check_index(index) == 1);
 	i = atoi(index.c_str());
-	std::cout << "INDEX : " << this->_contact[i].get_index() << "\n";
-	std::cout << "FIRST NAME : " << this->_contact[i].get_firstname() << "\n";
-	std::cout << "LAST NAME : " << this->_contact[i].get_lastname() << "\n";
-	std::cout << "NICKNAME : " << this->_contact[i].get_nickname() << "\n";
-	std::cout << "PHONE NUMBER : " << this->_contact[i].get_number() << "\n";
-	std::cout << "DARKEST SECRET : " << this->_contact[i].get_secret() << "\n";
+	std::cout << std::setw(15) << std::left << "INDEX " << ": ";
+	std::cout << this->_contact[i].get_index() << "\n";
+	std::cout << std::setw(15) << std::left << "FIRST NAME " << ": ";
+	std::cout << this->_contact[i].get_firstname() << "\n";
+	std::cout << std::setw(15) << std::left << "LAST NAME " << ": ";
+	std::cout << this->_contact[i].get_lastname() << "\n";
+	std::cout << std::setw(15) << std::left << "NICKNAME " << ": ";
+	std::cout << this->_contact[i].get_nickname() << "\n";
+	std::cout << std::setw(15) << std::left << "PHONE NUMBER " << ": ";
+	std::cout << this->_contact[i].get_number() << "\n";
+	std::cout << std::setw(15) << std::left << "DARKEST SECRET " << ": ";
+	std::cout << this->_contact[i].get_secret() << "\n";
 }
 
 int PhoneBook::set_contact(int i) {
