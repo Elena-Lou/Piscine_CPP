@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:04:41 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 15:58:49 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:44:01 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 class Zombie {
 	
 private:
-	std::string _name;
+
+	std::string name;
 
 public:
 	

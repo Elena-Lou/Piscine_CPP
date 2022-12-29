@@ -25,6 +25,7 @@ objs/*
 
 # Executables
 zombie
+horde
 *.exe
 *.out
 *.app

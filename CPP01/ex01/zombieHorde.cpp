@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:56:44 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 17:09:55 by elouisia         ###   ########.fr       */
+/*   Created: 2022/11/15 16:44:30 by elouisia          #+#    #+#             */
+/*   Updated: 2022/11/15 17:13:56 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.h"
 
-Zombie* newZombie( std::string name ) {
+Zombie* zombieHorde(int N, std::string name) {
 	
-	Zombie* zombie = new Zombie;
-	zombie->setName(name);
-	zombie->announce();
-	return zombie;
+	Zombie* zombies = new Zombie[N];
+	for (int i = 0; i < N; i++)
+	{
+		zombies[i].setName(name);
+		zombies[i].announce();
+	}
+	return zombies;
 }

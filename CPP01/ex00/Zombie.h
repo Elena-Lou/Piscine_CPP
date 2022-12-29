@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 15:45:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 16:00:49 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:45:05 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ZOMBIE_H
 #include <string>
 #include <iostream>
+#include <new>
 #include "Zombie.hpp"
 
 void randomChump( std::string name );
