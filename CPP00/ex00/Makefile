@@ -1,12 +1,12 @@
 SRCS = megaphone.cpp
 
-DEPSFLAGS = -MMD -MF $(@:.o=.d)
+CPPFLAGS = -MMD -MF $(@:.o=.d)
 
 NAME = megaphone
 
-CPP = c++
+CXX = c++
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJS_DIR = ./objs/
 
@@ -19,10 +19,10 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CPP) $(FLAGS) -o $@ -c $< $(DEPSFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)
@@ -31,7 +31,7 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean
-	all
+	@make all
 
 -include $(DEPS)
 

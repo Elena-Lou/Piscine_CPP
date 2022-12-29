@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 16:19:16 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/02 17:57:40 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/02 18:09:54 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int main(int ac, char **av) {
 			std::cout << (char)std::toupper(av[i][j]);
 			j++;
 		}
-		std::cout << " ";
 		i++;
 	}
 	std::cout << std::endl;
