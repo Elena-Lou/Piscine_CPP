@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:22:35 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/09 18:25:19 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:30:07 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 PhoneBook::PhoneBook(void) {
     
-	std::cout << "Phonebook constructor" << std::endl;
     return ;
 }
 
@@ -77,6 +76,7 @@ void PhoneBook::get_contact(void) {
 		}
 		i++;
 	}
+	
 	std::cout << "Which contact would you like to be fully diplayed ?" << std::endl;
 	
 	do {
@@ -96,13 +96,21 @@ void PhoneBook::get_contact(void) {
 
 int PhoneBook::set_contact(int i) {
  	
+	int 		j;
 	std::string	input;
 	std::string prompt[] = {
-		"What is your first name ?",
-		"What is your last name ?",
-		"What is your nickname ?",
-		"What is your phone number ?",
-		"What is your darkest secret ?"
+		"What is the contact's first name ?",
+		"What is the contact's last name ?",
+		"What is the contact's nickname ?",
+		"What is the contact's phone number ?",
+		"What is the contact's darkest secret ?"
+	};
+	void (Contact::*answer[])(std::string) = {
+		&Contact::set_firstname,
+		&Contact::set_lastname,
+		&Contact::set_nickname,
+		&Contact::set_number,
+		&Contact::set_secret
 	};
 	
 	if (i > 7)
@@ -110,53 +118,23 @@ int PhoneBook::set_contact(int i) {
  	if (std::cin.eof())
  		return 1 ;
 	this->_contact[i].set_index(i);
- 	std::cout << this->_contact[i].get_index() << "\n";
  	
-	do {
- 		std::cout << prompt[0] << "\n";
- 		getline(std::cin, input);
-		if (std::cin.eof())
- 			return 1 ;
-		this->_contact[i].set_firstname(input);
- 	} while (input.empty());
- 	
-	do {
- 		std::cout << prompt[1] << "\n";
- 		getline(std::cin, input);
-		if (std::cin.eof())
- 			return 1 ;
-		this->_contact[i].set_lastname(input);
- 	} while (input.empty());
- 	
-	do {
- 		std::cout << prompt[2] << "\n";
- 		getline(std::cin, input);
-		if (std::cin.eof())
- 			return 1 ;
-		this->_contact[i].set_nickname(input);
- 	} while (input.empty());
- 	
-	do {
- 		std::cout << prompt[3] << "\n";
- 		getline(std::cin, input);
-		if (std::cin.eof())
- 			return 1 ;
-		this->_contact[i].set_number(input);
- 	} while (input.empty());
- 	
-	do {
- 		std::cout << prompt[4] << "\n";
- 		getline(std::cin, input);
-		if (std::cin.eof())
- 			return 1 ;
-		this->_contact[i].set_secret(input);
- 	} while (input.empty());	
- 	
+	j = 0;
+	while (j < 5)
+	{
+		do {
+ 			std::cout << prompt[j] << "\n";
+ 			getline(std::cin, input);
+			if (std::cin.eof())
+ 				return 1 ;
+			(_contact[i].*(answer[j]))(input);
+ 		} while (input.empty());
+		j++;
+	}
 	return 0;
 }
     
 PhoneBook::~PhoneBook(void) {
 
-	std::cout << "Phonebook destructor" << std::endl;
     return ;
 }

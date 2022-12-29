@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:10:15 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 21:48:18 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:24:57 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 
 Contact::Contact (void) {
-    std::cout << "Contact constructor" << std::endl;
+
     return ;
 }
 
@@ -68,6 +68,6 @@ void Contact::set_index(int index) {
 }
 
 Contact::~Contact (void) {
-    std::cout << "Contact destructor" << std::endl;
+
     return ;
 }
