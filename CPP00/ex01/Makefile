@@ -4,6 +4,8 @@ SRCS = PhoneBook.cpp \
 
 CPPFLAGS = -MMD -MF $(@:.o=.d)
 
+INC = ./
+
 NAME = phonebook
 
 CXX = c++
@@ -21,7 +23,7 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS)
+	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS) -I $(INC)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
