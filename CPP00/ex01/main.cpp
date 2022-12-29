@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:14:19 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/12 17:53:25 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:38:41 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av) {
 	PhoneBook phonebook;
 	std::string input;
 	int	i;
-	(void) av;
+	( void ) av;
 
 	if (ac == 1)
 	{

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:22:35 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/12 12:32:38 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:38:41 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "PhoneBook.hpp"
 #include <ctype.h>
 
-PhoneBook::PhoneBook(void) {
+PhoneBook::PhoneBook( void ) {
     
     return ;
 }
@@ -52,7 +52,7 @@ int	PhoneBook::ft_check_index(std::string index) {
 	return 0;
 }
 
-void PhoneBook::get_contact(void) {
+void PhoneBook::get_contact( void ) {
 
 	int 		i;
 	std::string	index;
@@ -139,7 +139,7 @@ int PhoneBook::set_contact(int i) {
 	return 0;
 }
     
-PhoneBook::~PhoneBook(void) {
+PhoneBook::~PhoneBook( void ) {
 
     return ;
 }

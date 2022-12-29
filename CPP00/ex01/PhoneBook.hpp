@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:28:43 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/09 17:45:37 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/13 16:38:41 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ private:
 
 public:
 
-    PhoneBook(void);
-    ~PhoneBook(void);
+    PhoneBook( void );
+    ~PhoneBook( void );
   
-    void	get_contact(void);
+    void	get_contact( void );
     int		set_contact(int);
     
     void    display_contact(int index) const;
