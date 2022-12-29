@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:28:43 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/07 18:07:31 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:29:49 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 #include "Contact.hpp"
 
 class PhoneBook {
+    
+private:
+    
+    Contact _contact[8];
 
 public:
 
-    Contact contact[8];
-
     PhoneBook(void);
-    int		add_contact(int i);
-    void	display_contact(void) const;
+    int		set_contact(int i);
+    void	get_contact(void) const;
     ~PhoneBook(void);
 };
 #endif

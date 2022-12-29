@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:10:15 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/07 19:11:09 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:48:18 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,52 @@ Contact::Contact (void) {
     return ;
 }
 
-int Contact::set_contact(int i) {
-	std::string prompt[] = {"What is your first name ?", "What is your last name ?", "What is your nickname ?", "What is your phone number ?", "What is your darkest secret ?"};
-	std::string answer[] = {this->first_name, this->last_name, this->nickname, this->phone_nb, this->secret};
+std::string Contact::get_firstname(void) const {
+	return this->_first_name;
+}
 
-	if (std::cin.eof())
-		return 1 ;
-        this->index = i % 8;
-		std::cout << this->index << "\n";
-		do {
-			std::cout << prompt[0] << "\n";
-			getline(std::cin, this->first_name);
-		} while (this->first_name.length() < 1);
-		do {
-			std::cout << prompt[1] << "\n";
-			getline(std::cin, this->last_name);
-		} while (this->last_name.length() < 1);
-		do {
-			std::cout << prompt[2] << "\n";
-			getline(std::cin, this->nickname);
-		} while (this->nickname.length() < 1);
-		do {
-			std::cout << prompt[3] << "\n";
-			getline(std::cin, this->phone_nb);
-		} while (this->phone_nb.length() < 1);
-		do {
-			std::cout << prompt[4] << "\n";
-			getline(std::cin, this->secret);
-		} while (this->secret.length() < 1);	
-		return 0;
+std::string Contact::get_lastname(void) const {
+	return this->_last_name;
+}
+
+std::string Contact::get_nickname(void) const {
+	return this->_nickname;
+}
+
+std::string Contact::get_number(void) const {
+	return this->_phone_nb;
+}
+
+std::string Contact::get_secret(void) const {
+	return this->_secret;
+}
+
+int Contact::get_index(void) const {
+	return this->_index;
+}
+
+void Contact::set_firstname(std::string first_name) {
+	_first_name.assign(first_name);
+}
+
+void Contact::set_lastname(std::string last_name) {
+	_last_name.assign(last_name);
+}
+
+void Contact::set_nickname(std::string nickname) {
+	_nickname.assign(nickname);
+}
+
+void Contact::set_number(std::string phone_nb) {
+	_phone_nb.assign(phone_nb);
+}
+
+void Contact::set_secret(std::string secret) {
+	_secret.assign(secret);
+}
+
+void Contact::set_index(int index) {
+	_index = index;
 }
 
 Contact::~Contact (void) {

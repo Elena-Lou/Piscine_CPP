@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:14:19 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/07 18:41:35 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:49:10 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int main() {
 		getline(std::cin, input);
 		if (input == "ADD")
 		{
-			if (phonebook.add_contact(i) == 0)
+			if (phonebook.set_contact(i) == 0)
 				i++;
-			std::cout << phonebook.contact[i - 1].first_name << std::endl;
 		}
 		else if (input == "SEARCH")
-			phonebook.display_contact();
+			std::cout << "search" << std::endl;
+			// phonebook.display_contact();
 		else if (input == "EXIT")
 			return 0;
 	}
