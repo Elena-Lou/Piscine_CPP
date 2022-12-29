@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   Zombie.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 12:57:08 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 15:50:48 by elouisia         ###   ########.fr       */
+/*   Created: 2022/11/15 15:45:46 by elouisia          #+#    #+#             */
+/*   Updated: 2022/11/15 15:48:23 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
+#include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
-void	randomChump ( std::string name ) {
+void randomChump( std::string name);
 
-	Zombie zombie;
-	
-	zombie.setName(name);
-	zombie.announce();
-
-}
+#endif

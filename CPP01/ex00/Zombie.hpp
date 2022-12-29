@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 18:04:41 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/14 18:08:57 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:16:02 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 class Zombie {
 	
 private:
-	std::string name;
+	std::string _name;
 
 public:
 	
@@ -25,6 +25,8 @@ public:
 	~Zombie( void );
 
 	void announce( void );
+	std::string getName( void ) const;
+	void setName(std::string name);
 };
 
 #endif

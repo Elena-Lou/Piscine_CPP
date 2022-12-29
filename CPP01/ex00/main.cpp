@@ -6,16 +6,21 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:54:34 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/14 18:14:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/15 15:53:34 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Zombie.hpp"
+#include "Zombie.h"
+
 
 int	main( void ) {
 	
-	Zombie zombie;
+	randomChump("Arnold");
+	randomChump("Norbert");
+	randomChump("Auguste");
+	randomChump("Newton");
 
 	return 0;	
 }
