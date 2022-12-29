@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/04 15:49:08 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/06 16:54:27 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:24:48 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string Brain::getIdea ( int i ) const {
 	return this->ideas[i];
 }
 
-void Brain::setIdeas ( std::string ideas ) {
+void Brain::setIdeas ( std::string const & ideas ) {
 	
 	for (int i = 0 ; i < 100 ; i++)
 	{
@@ -56,7 +56,7 @@ void Brain::setIdeas ( std::string ideas ) {
 	}
 	return ;
 }
-void Brain::setIdea ( std::string idea, int i ) {
+void Brain::setIdea ( std::string const & idea, int i ) {
 
 	if (i < 0 || i > 99)
 	{

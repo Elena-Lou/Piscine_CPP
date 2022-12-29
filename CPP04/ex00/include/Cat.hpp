@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 16:58:41 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/03 11:43:57 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:31:23 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ private:
 
 protected:
 
-    std::string type;
-
 public:
     
     Cat();
@@ -30,7 +28,6 @@ public:
     
     Cat & operator=( Cat const & rhs );
 
-    std::string getType( void ) const ;
     void makeSound( void ) const;
 };
 

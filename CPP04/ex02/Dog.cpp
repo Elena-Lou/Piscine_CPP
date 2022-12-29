@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:34:31 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/06 17:11:10 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:29:24 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,17 @@ Dog::Dog ( void ) : AAnimal() {
 Dog::Dog ( Dog const & src ) : AAnimal ( src ) {
     
     std::cout << "[Class Dog] Copy Constructor" << std::endl;
-    this->brain = new Brain();
-    *(this->brain) = *(src.brain);
-    *this = src;
+    this->brain = new Brain(*src.brain);
     return;
 }
 
-void Dog::setIdeas ( std::string ideas ) {
+void Dog::setIdeas ( std::string const & ideas ) {
 	
 	this->brain->setIdeas(ideas);
 	return ;
 }
 
-void Dog::setIdea ( std::string idea, int i ) {
+void Dog::setIdea ( std::string const & idea, int i ) {
 	
 	this->brain->setIdea(idea, i);
 	return ;
@@ -56,19 +54,9 @@ Dog & Dog::operator=( Dog const & rhs ) {
     {
     	this->type = rhs.type;
         if (this->brain != NULL)
-        {
-        	delete this->brain;
-            this->brain = new Brain();
         	*(this->brain) = *(rhs.brain);
-        }
    }
     return *this;
-}
-
-
-std::string Dog::getType ( void ) const {
-    
-    return this->type;
 }
 
 void Dog::makeSound ( void ) const {

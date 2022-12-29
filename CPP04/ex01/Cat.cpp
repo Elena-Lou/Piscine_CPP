@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:24:33 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/06 16:46:52 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 14:27:26 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,7 @@ Cat::Cat ( void ) : Animal() {
 Cat::Cat ( Cat const & src ) : Animal ( src ){
 
     std::cout << "[Class Cat] Copy Constructor" << std::endl;
-    this->brain = new Brain();
-    *(this->brain) = *(src.brain);
-    *this = src;
+    this->brain = new Brain(*src.brain);
     return ;
 }
 
@@ -39,18 +37,9 @@ Cat & Cat::operator=( Cat const & rhs ) {
     {
     	this->type = rhs.type;
         if (this->brain != NULL)
-        {
-            delete this->brain;
-            this->brain = new Brain();
             *(this->brain) = *(rhs.brain);
-        }
     }
     return *this;
-}
-
-std::string Cat::getType ( void ) const {
-    
-    return this->type;
 }
 
 void Cat::makeSound ( void ) const {
@@ -59,13 +48,13 @@ void Cat::makeSound ( void ) const {
     return ;
 }
 
-void Cat::setIdeas ( std::string ideas ) {
+void Cat::setIdeas ( std::string const & ideas ) {
 	
 	this->brain->setIdeas(ideas);
 	return ;
 }
 
-void Cat::setIdea ( std::string idea, int i ) {
+void Cat::setIdea ( std::string const & idea, int i ) {
 	
 	this->brain->setIdea(idea, i);
 	return ;

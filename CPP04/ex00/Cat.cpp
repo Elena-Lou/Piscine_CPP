@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 17:24:33 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/04 11:49:36 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/07 13:31:13 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,6 @@ Cat & Cat::operator=( Cat const & rhs ) {
     if (this != &rhs )
     	this->type = rhs.type;
     return *this;
-}
-
-std::string Cat::getType ( void ) const {
-    
-    return this->type;
 }
 
 void Cat::makeSound ( void ) const {
