@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 14:14:19 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 22:30:10 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/12 17:53:25 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,36 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int main() {
+int main(int ac, char **av) {
 	
 	PhoneBook phonebook;
 	std::string input;
 	int	i;
+	(void) av;
 
-	i = 0;	
-	while (1)
+	if (ac == 1)
 	{
-		if (std::cin.eof())
-			return 1;
-		std::cout << "Type a command" << "\n";
-		getline(std::cin, input);
-		if (input == "ADD")
+		i = 0;
+		while (1)
 		{
-			if (phonebook.set_contact(i) == 0)
-				i++;
+			if (std::cin.eof())
+				return 1;
+			std::cout << "Type a command" << "\n";
+			getline(std::cin, input);
+			if (input == "ADD")
+			{
+				if (phonebook.set_contact(i) == 0)
+					i++;
+			}
+			else if (input == "SEARCH")
+				phonebook.get_contact();
+			else if (input == "EXIT")
+				return 0;
 		}
-		else if (input == "SEARCH")
-			phonebook.get_contact();
-		else if (input == "EXIT")
-			return 0;
+	}
+	else
+	{
+		std::cout << "Invalid number of arguments" << std::endl;
+		return 1;
 	}
 }
