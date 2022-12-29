@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:28:43 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 23:18:13 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:45:37 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ public:
     PhoneBook(void);
     ~PhoneBook(void);
   
-    void	get_contact(void) const;
+    void	get_contact(void);
     int		set_contact(int);
     
-    void    display_contact(int) const;
-    void    display_contact(std::string) const;
+    void    display_contact(int index) const;
+    void    display_contact(std::string data) const;
+    int     ft_check_index(std::string index);
 
 };
 #endif

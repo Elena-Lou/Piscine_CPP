@@ -52,7 +52,7 @@ dkms.conf
 *.swp
 *.swo
 *tags
-../../.vscode
+../../.vscode/
 
 # Custom files
 *toto

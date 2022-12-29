@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 15:22:35 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 23:34:52 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:25:19 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+#include <ctype.h>
 
 PhoneBook::PhoneBook(void) {
     
@@ -33,7 +34,6 @@ void PhoneBook::display_contact(std::string data) const {
 	std::cout << '|';
 	if (data.size() > 10)
 	{
-		// data.pop_back();
 		data.resize(9);
 		data.push_back('.');
 	}
@@ -41,7 +41,20 @@ void PhoneBook::display_contact(std::string data) const {
 	std::cout << data;
 }
 
-void PhoneBook::get_contact(void) const {
+int	PhoneBook::ft_check_index(std::string index) {
+	
+	int i;
+
+	if (!std::isdigit(index[0]) || index.size() != 1)
+		return 1;
+	
+	i = atoi(index.c_str());
+	if (this->_contact[i].get_firstname().empty())
+		return 1;
+	return 0;
+}
+
+void PhoneBook::get_contact(void) {
 
 	int 		i;
 	std::string	index;
@@ -65,16 +78,20 @@ void PhoneBook::get_contact(void) const {
 		i++;
 	}
 	std::cout << "Which contact would you like to be fully diplayed ?" << std::endl;
-	getline(std::cin, index);
-	if (std::cin.eof())
+	
+	do {
+		getline(std::cin, index);
+		if (std::cin.eof())
  			return ;
+		std::cout << "Please enter the index of a valid contact" << std::endl;
+	} while (ft_check_index(index) == 1);
 	i = atoi(index.c_str());
-	std::cout << this->_contact[i].get_index() << "\n";
-	std::cout << this->_contact[i].get_firstname() << "\n";
-	std::cout << this->_contact[i].get_lastname() << "\n";
-	std::cout << this->_contact[i].get_nickname() << "\n";
-	std::cout << this->_contact[i].get_number() << "\n";
-	std::cout << this->_contact[i].get_secret() << "\n";
+	std::cout << "INDEX : " << this->_contact[i].get_index() << "\n";
+	std::cout << "FIRST NAME : " << this->_contact[i].get_firstname() << "\n";
+	std::cout << "LAST NAME : " << this->_contact[i].get_lastname() << "\n";
+	std::cout << "NICKNAME : " << this->_contact[i].get_nickname() << "\n";
+	std::cout << "PHONE NUMBER : " << this->_contact[i].get_number() << "\n";
+	std::cout << "DARKEST SECRET : " << this->_contact[i].get_secret() << "\n";
 }
 
 int PhoneBook::set_contact(int i) {

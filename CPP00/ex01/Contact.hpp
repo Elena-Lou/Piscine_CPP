@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 18:27:09 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/08 21:29:41 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:43:43 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ public:
 	std::string	get_secret() const;
 	int			get_index() const;
 	
-	void	set_firstname(std::string);
-	void	set_lastname(std::string);
-	void	set_nickname(std::string);
-	void	set_number(std::string);
-	void	set_secret(std::string);
-	void	set_index(int);
+	void	set_firstname(std::string first_name);
+	void	set_lastname(std::string last_name);
+	void	set_nickname(std::string nickname);
+	void	set_number(std::string phone_nb);
+	void	set_secret(std::string secret);
+	void	set_index(int index);
 };
 #endif
