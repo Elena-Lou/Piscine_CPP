@@ -6,21 +6,31 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 17:54:34 by elouisia          #+#    #+#             */
-/*   Updated: 2022/11/15 15:53:34 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:27:57 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
 #include "Zombie.h"
 
 
 int	main( void ) {
+	Zombie* Arnold;
+	Zombie* Capuche;
 	
-	randomChump("Arnold");
+	Arnold = newZombie("Arnold");
+	if (Arnold == NULL)
+		return 1;
+	
 	randomChump("Norbert");
-	randomChump("Auguste");
+	
+	Capuche = newZombie("Capuche");
+	if (Capuche == NULL)
+		return 1;
+		
 	randomChump("Newton");
+
+	delete Arnold;
+	delete Capuche;
 
 	return 0;	
 }
