@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:14:59 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 15:53:39 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:45:14 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Bureaucrat::Bureaucrat ( void ) {
 	
 	std::cout << "[Bureaucrat] Default Constructor" << std::endl;
 }
+
 Bureaucrat::Bureaucrat ( const std::string name, int grade ) : _name( name ), _grade ( grade ) {
 	
 	if (grade < 1)

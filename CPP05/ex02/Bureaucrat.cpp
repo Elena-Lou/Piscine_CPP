@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 18:14:59 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/11 18:07:19 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:10:48 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Bureaucrat::Bureaucrat ( void ) {
 	
 	std::cout << "[Bureaucrat] Default Constructor" << std::endl;
 }
+
 Bureaucrat::Bureaucrat ( const std::string name, int grade ) : _name( name ), _grade ( grade ) {
 	
 	if (grade < 1)
@@ -84,7 +85,7 @@ void Bureaucrat::signForm ( AForm & formToSign ) {
 		}
 		catch (std::exception & e)
 		{
-			std::cout << this->_name << " couldn't sign form because " << "their" << e.what() <<  std::endl;
+			std::cout << this->_name << " couldn't sign form because " << e.what() <<  std::endl;
 		}
 	}
 }
@@ -98,7 +99,7 @@ void Bureaucrat::executeForm ( AForm const & form ) {
 	}
 	catch(std::exception & e)
 	{
-		std::cout << this->_name << " couldn't execute " << form.getName() << " because " << "their" << e.what() << std::endl;
+		std::cout << this->_name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

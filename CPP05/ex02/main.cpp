@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:36:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/11 18:04:07 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:08:18 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 
 int main ( void ) {
 
+	std::srand(time(NULL));
+	
 	try 
 	{
-		Bureaucrat Bob("Bob", 40);
+		Bureaucrat Bob("Bob", 1);
 		ShrubberyCreationForm Test("garden");
 
-	// Test.beSigned(Bob);
-		Test.execute(Bob);
+		Bob.signForm(Test);
+		Bob.executeForm(Test);
 	}
 	catch (std::exception & e)
 	{
@@ -35,11 +37,11 @@ int main ( void ) {
 	
 	try 
 	{
-		Bureaucrat Bob("Bob", 140);
+		Bureaucrat Bob("Bob", 135);
 		RobotomyRequestForm Test("Marcel");
 
-		Test.beSigned(Bob);
-		Test.execute(Bob);
+		Bob.signForm(Test);
+		Bob.executeForm(Test);
 	}
 	catch (std::exception & e)
 	{
@@ -53,8 +55,8 @@ int main ( void ) {
 		Bureaucrat Bob("Bob", 15);
 		PresidentialPardonForm Test("Marcel");
 
-		Test.beSigned(Bob);
-		Test.execute(Bob);
+		Bob.signForm(Test);
+		Bob.executeForm(Test);
 	}
 	catch (std::exception & e)
 	{

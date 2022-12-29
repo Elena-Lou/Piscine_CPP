@@ -85,6 +85,17 @@ std::string AForm::getTarget ( void ) const {
 	return this->_target;
 }
 
+void AForm::checkRequirement ( Bureaucrat const & executor ) const {
+
+	if (this->getSignStatus() == "not signed")
+	{
+		throw AForm::FormNotSignedException();
+	}
+	else if (executor.getGrade() > this->getExecGrade())
+	{
+		throw AForm::GradeTooLowException();
+	}
+}
 void AForm::beSigned ( Bureaucrat & bureaucrat ) {
 	
 	if (this->_signStatus == 1)
@@ -96,32 +107,31 @@ void AForm::beSigned ( Bureaucrat & bureaucrat ) {
 		if (bureaucrat.getGrade() > this->_signGrade)
 			throw AForm::GradeTooLowException();
 		this->_signStatus = 1;
-		std::cout << bureaucrat.getName() << " signed " << this->_name << std::endl;
 	}
 }
 
 std::ostream & operator<<( std::ostream & out, AForm const & rhs ) {
 
 	out << "AForm : " << rhs.getName();
-	out << "\nStatus : " << rhs.getSignStatus() << "\n";
-	out << "Grade required to sign the form : " << rhs.getSignGrade() << "\n";
-	out << "Grade required to execute the form : " << rhs.getExecGrade();
+	out << "\nStatus : " << rhs.getSignStatus();
+	out << "\nGrade required to sign the form : " << rhs.getSignGrade();
+	out << "\nGrade required to execute the form : " << rhs.getExecGrade();
 
 	return out;	
 }
 
 const char* AForm::GradeTooHighException::what( void ) const throw() {
 	
-	return ("The grade is too high to perform this task");
+	return ("grade is too high to perform this task");
 }
 
 const char* AForm::GradeTooLowException::what( void ) const throw() {
 	
-	return ("The grade is too low to perform this task");
+	return ("grade is too low to perform this task");
 }
 
 const char* AForm::FormNotSignedException::what( void ) const throw() {
 	
-	return ("The form must be signed first");
+	return ("the form must be signed first");
 }
 

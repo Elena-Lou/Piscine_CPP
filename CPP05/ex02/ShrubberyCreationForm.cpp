@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:47:48 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/11 18:06:22 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:07:39 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,10 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=( ShrubberyCreationForm 
 
 void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 
+	this->checkRequirement( executor );
+	
 	std::ofstream	outfile;
 	std::string		outName;
-
-	if (this->getSignStatus() == "not signed")
-	{
-		throw AForm::FormNotSignedException();
-	}
-	else if (executor.getGrade() > this->getExecGrade())
-	{
-		throw AForm::GradeTooLowException();
-	}
-	
 	outName = this->getTarget();
 	outName += "_shrubbery";
 	outfile.open(outName.c_str(), std::ofstream::out | std::ofstream::trunc);
@@ -71,7 +63,6 @@ void ShrubberyCreationForm::execute( Bureaucrat const & executor ) const {
 	outfile << "       MMMMM_\"  \"_    ./" << "\n" ;
 	outfile << "        ''''      (    )" << "\n" ;
 	outfile << " ._______________.-'____\"---._." << "\n" ;
-
 	outfile.close();
 }
 

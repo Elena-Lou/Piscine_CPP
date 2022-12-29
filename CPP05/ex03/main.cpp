@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:36:46 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/11 15:46:16 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:37:41 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "Intern.hpp"
 
 int main ( void ) {
-
-	
 
 	Intern maurice;
 	AForm* rrf;
@@ -36,7 +34,7 @@ int main ( void ) {
 	if (rrf != NULL)
 	{
 		delete rrf;
-		rrf = NULL;		
+		rrf = NULL;
 	}
 	
 	std::cout << "\n------------\n" << std::endl;

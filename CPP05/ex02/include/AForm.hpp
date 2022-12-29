@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 17:37:44 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/11 17:51:35 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:52:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ public:
 	std::string		getTarget( void ) const;
 
 	void			beSigned( Bureaucrat & bureaucrat );
+	void			checkRequirement( Bureaucrat const & executor ) const;
 	virtual void	execute( Bureaucrat const & executor ) const = 0;
 
 	class GradeTooHighException : public std::exception

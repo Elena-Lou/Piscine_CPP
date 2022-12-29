@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/09 13:45:24 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/09 17:31:05 by elouisia         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:47:18 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ROBOTOMYREQUESTFORM_HPP
 #include <string>
 #include <iostream>
+#include <cstdlib>
+#include <time.h>
 #include "AForm.hpp"
 
 class Bureaucrat;

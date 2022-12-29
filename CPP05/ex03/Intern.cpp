@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/11 18:22:57 by elouisia          #+#    #+#             */
+/*   Updated: 2022/12/12 12:41:08 by elouisia         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -56,6 +68,7 @@ AForm* Intern::makeForm ( std::string form, std::string target ){
         if (formName[i] == form)
         {
             newForm = (*Forms[i])(target);
+            std::cout << "Intern creates " << form << " form" << std::endl;
             return newForm;
         }
     }
