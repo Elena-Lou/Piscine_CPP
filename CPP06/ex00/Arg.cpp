@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/06 15:39:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:34:54 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,32 @@ void Arg::setValue ( char* value ) {
 	this->_value = value;
 }
 
+void Arg::convertToLD ( void ) {
+
+	std::istringstream input(this->_value);
+	input >> this->_ldValue;
+}
+
+void Arg::printValue ( void ) {
+	
+	this->convertToLD();
+	std::cout << "char : " << static_cast<char>(this->_ldValue) << std::endl;
+	std::cout << "int : " << static_cast<int>(this->_ldValue) << std::endl;
+	std::cout << "float : " << static_cast<float>(this->_ldValue) << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(this->_ldValue) << std::endl;
+}
+
 std::string Arg::getValue ( void ) const {
 
 	return this->_value;
 }
 
-int	Arg::whatIsYourType ( void ) {
+int	Arg::whatIsYourType ( void ) const {
 	
 	std::size_t	found;
 	
 	if (this->_value.size() == 1 && !isdigit(this->_value[0]))
-	{
-		std::cerr << "I am a CHAR" << std::endl;
 		return CHAR;
-	}
 	else
 	{
 		if (this->_value[0] == '-' && !isdigit(this->_value[1]))
@@ -71,41 +83,52 @@ int	Arg::whatIsYourType ( void ) {
 				{
 					found = this->_value.find('.', found + 1);
 					if (found != std::string::npos)
-					{
-						std::cerr << "I am a FAILURE" << std::endl;
-						return FAILURE;	
-					}
-					else if (!isdigit(this->_value[i + 1]))
-					{
-						std::cerr << "I am a FAILURE" << std::endl;
 						return FAILURE;
-					}
+					else if (!isdigit(this->_value[i + 1]))
+						return FAILURE;
 					found = this->_value.find('f');
 					if (found != std::string::npos)
 					{
-						std::cerr << "float condition - found pos : " << found << " - this->_value.size() : " << this->_value.size() << std::endl;
 						if (found == this->_value.size() - 1)
-						{
-							std::cerr << "I am a FLOAT" << std::endl;
 							return FLOAT;
-						}
 						else
-						{
-							std::cerr << "I am a FAILURE" << std::endl;
 							return FAILURE;
-						}
 					}
 					else
-						{
-							std::cerr << "I am a DOUBLE" << std::endl;
-							return DOUBLE;
-						}
+						return DOUBLE;
 				}
-				std::cerr << "I am a FAILURE" << std::endl;
 				return FAILURE;	
 			}
 		}
-		std::cerr << "I am an INT" << std::endl;
 		return INT;
+	}
+}
+
+void Arg::typeSwitcher ( void ) {
+	
+	switch (this->whatIsYourType()) {
+		case INT:
+			std::cout << "I am an INT" << std::endl;
+			// this->_intValue = std::stoi(this->_value);
+			break ; 
+		
+		case FLOAT:
+			std::cout << "I am a FLOAT" << std::endl;
+			// this->_floatValue = std::stof(this->_value);
+			break ;
+
+		case DOUBLE:
+			std::cout << "I am a DOUBLE" << std::endl;
+			// this->_doubleValue = std::stod(this->_value);
+			break ;
+
+		case CHAR:
+			std::cout << "I am a CHAR" << std::endl;
+			// this->_charValue = this->_value[0];			
+			break ;
+
+		default:
+			std::cout << "I am a FAILURE" << std::endl;
+			
 	}
 }

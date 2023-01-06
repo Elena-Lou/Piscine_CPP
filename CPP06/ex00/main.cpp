@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:22:03 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/06 15:00:35 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:55:13 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int main ( int ac, char** av ) {
 		return FAILURE;
 	}
 	arg.setValue(av[1]);
-	std::cout << arg.whatIsYourType() << std::endl;
+	arg.typeSwitcher();
+	arg.printValue();
 
 	return 0;
 }

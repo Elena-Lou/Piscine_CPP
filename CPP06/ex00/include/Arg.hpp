@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/06 14:45:10 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:27:42 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <ctype.h>
+#include <sstream>
 
 #ifndef INT
 # define INT 1
@@ -43,6 +44,13 @@ private:
 
 	std::string _value;
 	
+	// char		_charValue;
+	// int			_intValue;
+	// float		_floatValue;
+	// double		_doubleValue;
+	
+	long double _ldValue;
+	
 public: 
 
 	Arg();
@@ -54,7 +62,15 @@ public:
 	void setValue( char* value );
 	std::string getValue( void ) const ;
 
-	int	whatIsYourType( void ) ;
+	int	whatIsYourType( void ) const ;
+	void typeSwitcher( void ) ;
+
+	void convertToLD( void );
+	void printValue( void );
+	// void printFromInt( void );
+	// void printFromFloat( void );
+	// void printFromDouble( void );
+	// void printFromChar( void );
 };
 
 #endif
