@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/29 18:57:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/06 14:45:10 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,27 @@
 
 #include <iostream>
 #include <string>
+#include <ctype.h>
+
+#ifndef INT
+# define INT 1
+#endif
+
+#ifndef FLOAT
+# define FLOAT 2
+#endif
+
+#ifndef DOUBLE
+# define DOUBLE 3
+#endif
+
+#ifndef CHAR
+# define CHAR 4
+#endif
+
+#ifndef FAILURE
+# define FAILURE -1
+#endif
 
 class Arg {
 
@@ -32,6 +53,8 @@ public:
 
 	void setValue( char* value );
 	std::string getValue( void ) const ;
+
+	int	whatIsYourType( void ) ;
 };
 
 #endif

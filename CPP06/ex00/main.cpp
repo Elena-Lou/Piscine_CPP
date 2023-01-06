@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 18:22:03 by elouisia          #+#    #+#             */
-/*   Updated: 2022/12/29 17:48:43 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/06 15:00:35 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,13 @@ int main ( int ac, char** av ) {
 
 	Arg arg;
 	
-	arg.setValue(av[2]);
+	if (ac != 2)
+	{
+		std::cerr << "Invalid input" << std::endl;
+		return FAILURE;
+	}
+	arg.setValue(av[1]);
+	std::cout << arg.whatIsYourType() << std::endl;
 
 	return 0;
 }

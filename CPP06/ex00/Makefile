@@ -1,4 +1,5 @@
 SRCS = main.cpp \
+		Arg.cpp
 
 
 CPPFLAGS = -MMD -MF $(@:.o=.d)
