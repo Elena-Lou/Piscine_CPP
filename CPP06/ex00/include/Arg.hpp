@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/06 17:27:42 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:23:25 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,10 @@ private:
 
 	std::string _value;
 	
-	// char		_charValue;
-	// int			_intValue;
-	// float		_floatValue;
-	// double		_doubleValue;
-	
-	long double _ldValue;
+	char		_charValue;
+	int			_intValue;
+	float		_floatValue;
+	double		_doubleValue;
 	
 public: 
 
@@ -65,12 +63,10 @@ public:
 	int	whatIsYourType( void ) const ;
 	void typeSwitcher( void ) ;
 
-	void convertToLD( void );
-	void printValue( void );
-	// void printFromInt( void );
-	// void printFromFloat( void );
-	// void printFromDouble( void );
-	// void printFromChar( void );
+	void printFromInt( void ) const ;
+	void printFromFloat( void ) const ;
+	void printFromDouble( void  ) const ;
+	void printFromChar( void ) const ;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/06 17:34:54 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/07 14:27:09 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ Arg & Arg::operator=( Arg const & rhs ) {
 	if (this != &rhs)
 	{
 		this->_value = rhs._value;
+		this->_intValue = rhs._intValue;
+		this->_floatValue = rhs._floatValue;
+		this->_doubleValue = rhs._doubleValue;
 	}
 	return *this;
 }
@@ -44,24 +47,41 @@ void Arg::setValue ( char* value ) {
 	this->_value = value;
 }
 
-void Arg::convertToLD ( void ) {
-
-	std::istringstream input(this->_value);
-	input >> this->_ldValue;
-}
-
-void Arg::printValue ( void ) {
-	
-	this->convertToLD();
-	std::cout << "char : " << static_cast<char>(this->_ldValue) << std::endl;
-	std::cout << "int : " << static_cast<int>(this->_ldValue) << std::endl;
-	std::cout << "float : " << static_cast<float>(this->_ldValue) << "f" << std::endl;
-	std::cout << "double : " << static_cast<double>(this->_ldValue) << std::endl;
-}
-
 std::string Arg::getValue ( void ) const {
 
 	return this->_value;
+}
+
+void Arg::printFromInt ( void ) const {
+	
+	std::cout << "char : " << this->_intValue << std::endl;
+	std::cout << "int : " << static_cast<int>(this->_intValue) << std::endl;
+	std::cout << "float : " << static_cast<float>(this->_intValue) << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(this->_intValue) << std::endl;
+}
+
+void Arg::printFromFloat ( void ) const {
+	
+	std::cout << "char : " << static_cast<char>(this->_floatValue) << std::endl;
+	std::cout << "int : " << static_cast<int>(this->_floatValue) << std::endl;
+	std::cout << "float : " << this->_floatValue << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(this->_floatValue) << std::endl;
+}
+
+void Arg::printFromDouble ( void ) const {
+	
+	std::cout << "char : " << static_cast<char>(this->_doubleValue) << std::endl;
+	std::cout << "int : " << static_cast<int>(this->_doubleValue) << std::endl;
+	std::cout << "float : " << static_cast<float>(this->_doubleValue) << "f" << std::endl;
+	std::cout << "double : " << this->_doubleValue << std::endl;
+}
+
+void Arg::printFromChar ( void ) const {
+	
+	std::cout << "char : " << this->_charValue << std::endl;
+	std::cout << "int : " << static_cast<int>(this->_charValue) << std::endl;
+	std::cout << "float : " << static_cast<float>(this->_charValue) << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(this->_charValue) << std::endl;
 }
 
 int	Arg::whatIsYourType ( void ) const {
@@ -105,26 +125,32 @@ int	Arg::whatIsYourType ( void ) const {
 }
 
 void Arg::typeSwitcher ( void ) {
+
+	std::istringstream input(this->_value);
 	
 	switch (this->whatIsYourType()) {
 		case INT:
-			std::cout << "I am an INT" << std::endl;
-			// this->_intValue = std::stoi(this->_value);
+			std::cerr << "I am an INT" << std::endl;
+			input >> this->_intValue;
+			this->printFromInt();
 			break ; 
 		
 		case FLOAT:
-			std::cout << "I am a FLOAT" << std::endl;
-			// this->_floatValue = std::stof(this->_value);
+			std::cerr << "I am a FLOAT" << std::endl;
+			input >> this->_floatValue;
+			this->printFromFloat();
 			break ;
 
 		case DOUBLE:
-			std::cout << "I am a DOUBLE" << std::endl;
-			// this->_doubleValue = std::stod(this->_value);
+			std::cerr << "I am a DOUBLE" << std::endl;
+			input >> this->_doubleValue;
+			this->printFromDouble();
 			break ;
 
 		case CHAR:
-			std::cout << "I am a CHAR" << std::endl;
-			// this->_charValue = this->_value[0];			
+			std::cerr << "I am a CHAR" << std::endl;
+			this->_charValue = this->_value[0];
+			this->printFromChar();		
 			break ;
 
 		default:
