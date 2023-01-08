@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/07 14:27:09 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:55:15 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ std::string Arg::getValue ( void ) const {
 
 void Arg::printFromInt ( void ) const {
 	
-	std::cout << "char : " << this->_intValue << std::endl;
+	if (!isprint(static_cast<char>(this->_intValue)))
+	{
+		std::cout << "char : non displayable" << std::endl;
+	}
+	else 
+		std::cout << "char : " << static_cast<char>(this->_intValue) << std::endl;
 	std::cout << "int : " << static_cast<int>(this->_intValue) << std::endl;
 	std::cout << "float : " << static_cast<float>(this->_intValue) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(this->_intValue) << std::endl;
@@ -62,6 +67,11 @@ void Arg::printFromInt ( void ) const {
 
 void Arg::printFromFloat ( void ) const {
 	
+	if (!isprint(static_cast<char>(this->_floatValue)))
+	{
+		std::cout << "char : non displayable" << std::endl;
+	}
+	else 
 	std::cout << "char : " << static_cast<char>(this->_floatValue) << std::endl;
 	std::cout << "int : " << static_cast<int>(this->_floatValue) << std::endl;
 	std::cout << "float : " << this->_floatValue << "f" << std::endl;
@@ -70,6 +80,11 @@ void Arg::printFromFloat ( void ) const {
 
 void Arg::printFromDouble ( void ) const {
 	
+	if (!isprint(static_cast<char>(this->_doubleValue)))
+	{
+		std::cout << "char : non displayable" << std::endl;
+	}
+	else 
 	std::cout << "char : " << static_cast<char>(this->_doubleValue) << std::endl;
 	std::cout << "int : " << static_cast<int>(this->_doubleValue) << std::endl;
 	std::cout << "float : " << static_cast<float>(this->_doubleValue) << "f" << std::endl;
@@ -84,9 +99,57 @@ void Arg::printFromChar ( void ) const {
 	std::cout << "double : " << static_cast<double>(this->_charValue) << std::endl;
 }
 
-int	Arg::whatIsYourType ( void ) const {
+void Arg::printInfinity ( void ) const {
+
+	if (this->_infinityValue == NEGINF)
+	{
+		std::cout << "char : impossible "  << std::endl;
+		std::cout << "int : impossible "  << std::endl;
+		std::cout << "float : -inff" << std::endl;
+		std::cout << "double : -inf" << std::endl;
+	}
+	
+	else if (this->_infinityValue == POSINF)
+	{
+		std::cout << "char : impossible "  << std::endl;
+		std::cout << "int : impossible "  << std::endl;
+		std::cout << "float : inff" << std::endl;
+		std::cout << "double : inf" << std::endl;
+	}
+	
+	else if (this->_infinityValue == NAN)
+	{
+		std::cout << "char : impossible "  << std::endl;
+		std::cout << "int : impossible "  << std::endl;
+		std::cout << "float : nanf" << std::endl;
+		std::cout << "double : nan" << std::endl;
+	}
+	
+}
+
+int Arg::infinityCheck ( void ) const {
+	
+	if (this->_value == "-inf" || this->_value == "-inff")
+		return NEGINF;
+	else if (this->_value == "inf" || this->_value == "inff")
+		return POSINF;
+	else if (this->_value == "nan" || this->_value == "nanf")
+		return NAN;
+	else
+		return 0;
+	
+}
+
+int	Arg::whatIsYourType ( void ) {
 	
 	std::size_t	found;
+
+	this->_infinityValue = this->infinityCheck();
+	if (this->_infinityValue != 0)
+	{
+		this->printInfinity();
+		return FAILURE;
+	}
 	
 	if (this->_value.size() == 1 && !isdigit(this->_value[0]))
 		return CHAR;

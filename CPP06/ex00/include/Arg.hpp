@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/07 14:23:25 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:08:28 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,18 @@
 # define FAILURE -1
 #endif
 
+#ifndef NEGINF
+# define NEGINF 1
+#endif
+
+#ifndef POSINF
+# define POSINF 2
+#endif
+
+#ifndef NAN
+# define NAN 3
+#endif
+
 class Arg {
 
 private: 
@@ -49,6 +61,8 @@ private:
 	float		_floatValue;
 	double		_doubleValue;
 	
+	int			_infinityValue;
+	
 public: 
 
 	Arg();
@@ -59,10 +73,12 @@ public:
 
 	void setValue( char* value );
 	std::string getValue( void ) const ;
+	
+	int infinityCheck( void ) const ;
+	int	whatIsYourType( void );
+	void typeSwitcher( void );
 
-	int	whatIsYourType( void ) const ;
-	void typeSwitcher( void ) ;
-
+	void printInfinity( void ) const ;
 	void printFromInt( void ) const ;
 	void printFromFloat( void ) const ;
 	void printFromDouble( void  ) const ;
