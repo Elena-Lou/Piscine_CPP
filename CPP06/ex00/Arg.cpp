@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 18:55:15 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:59:36 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Arg & Arg::operator=( Arg const & rhs ) {
 		this->_intValue = rhs._intValue;
 		this->_floatValue = rhs._floatValue;
 		this->_doubleValue = rhs._doubleValue;
+		this->_infinityValue = rhs._infinityValue;
 	}
 	return *this;
 }
