@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 18:08:28 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/08 20:41:12 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@
 #include <string>
 #include <ctype.h>
 #include <sstream>
+
+#ifndef FAILURE
+# define FAILURE -1
+#endif
+
+#ifndef SUCCESS
+# define SUCCESS 0
+#endif
 
 #ifndef INT
 # define INT 1
@@ -32,10 +40,6 @@
 
 #ifndef CHAR
 # define CHAR 4
-#endif
-
-#ifndef FAILURE
-# define FAILURE -1
 #endif
 
 #ifndef NEGINF
