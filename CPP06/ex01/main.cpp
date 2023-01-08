@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:06:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 19:43:16 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:56:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int	main ( int ac, char** av ) {
 	std::cout << "serialized : " << serialized << std::endl;
 	std::cout << "deserialized : " << deserialized << " - deserialized->input : " << deserialized->input << std::endl;
 
+	delete ptr;
 	return 0;
 }
