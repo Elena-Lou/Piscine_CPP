@@ -9,7 +9,7 @@ NAME = dynamic
 
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -Wno-unused -g3 -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
 OBJS_DIR = ./objs/
 

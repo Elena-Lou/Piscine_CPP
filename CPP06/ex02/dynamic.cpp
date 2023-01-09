@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 20:36:49 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 21:06:52 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:19:56 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void identify ( Base* p ) {
 	
 	if (dynamic_cast<A *>(p))
 	{
-		std::cout << "p is A" << std::endl;
+		std::cout << "ptr is A" << std::endl;
 		return ;
 	}
 	else if (dynamic_cast<B *>(p))
 	{
-		std::cout << "p is B" << std::endl;
+		std::cout << "ptr is B" << std::endl;
 		return ;
 	}
-		if (dynamic_cast<C *>(p))
+	if (dynamic_cast<C *>(p))
 	{
-		std::cout << "p is C" << std::endl;
+		std::cout << "ptr is C" << std::endl;
 		return ;
 	}
 	
@@ -40,13 +40,27 @@ void identify ( Base & p ) {
 
 	try {
 		A &test = dynamic_cast<A &>(p);
-		std::cout << "p is A" << std::endl;
+		std::cout << "ptr is A" << std::endl;
+		(void)test;
+		return ;
 	}
-	catch ( std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	catch ( std::exception & e) {}
 	
+	try {
+		B &test = dynamic_cast<B &>(p);
+		std::cout << "ptr is B" << std::endl;
+		(void)test;
+		return ;
+	}
+	catch ( std::exception & e) {}
+	
+	try {
+		C &test = dynamic_cast<C &>(p);
+		std::cout << "ptr is C" << std::endl;
+		(void)test;
+		return ;
+	}
+	catch ( std::exception & e) {}
 }
 
 Base* generate ( void ) {

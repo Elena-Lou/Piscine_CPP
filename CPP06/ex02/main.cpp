@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 19:47:41 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 20:57:32 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/09 10:19:25 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main ( void ) {
 	Base * ptr = generate();
 	if (!ptr)
 		return 1;
-	std::cerr << ptr << std::endl;
 
 	identify( ptr );
 	std::cout << "\n --------------- \n" << std::endl;
