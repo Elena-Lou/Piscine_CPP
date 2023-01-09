@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/08 20:41:12 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:51:55 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 #include <string>
 #include <ctype.h>
 #include <sstream>
+#include <limits>
+#include <cerrno>
+#include <cstdlib>
+#include <iomanip>
+#include <cmath>
 
 #ifndef FAILURE
 # define FAILURE -1
@@ -50,8 +55,8 @@
 # define POSINF 2
 #endif
 
-#ifndef NAN
-# define NAN 3
+#ifndef NANVAL
+# define NANVAL 3
 #endif
 
 class Arg {
@@ -61,10 +66,6 @@ private:
 	std::string _value;
 	
 	char		_charValue;
-	int			_intValue;
-	float		_floatValue;
-	double		_doubleValue;
-	
 	int			_infinityValue;
 	
 public: 
@@ -83,10 +84,9 @@ public:
 	void typeSwitcher( void );
 
 	void printInfinity( void ) const ;
-	void printFromInt( void ) const ;
-	void printFromFloat( void ) const ;
-	void printFromDouble( void  ) const ;
-	void printFromChar( void ) const ;
+	void printValue( void ) const ;
+	
+	size_t		_precision;
 };
 
 #endif
