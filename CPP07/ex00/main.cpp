@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:23:47 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/10 13:01:24 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:39:24 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int main( void ) {
 
 	std::cout << "\n--- CHAR ---\n" ;
 
-	int g = 'A';
-	int h = 'z';
+	char g = 'A';
+	char h = 'z';
 	
 	::swap( g, h );
 	
