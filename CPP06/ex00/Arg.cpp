@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:53:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/09 20:54:36 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:21:56 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,7 +180,7 @@ int	Arg::whatIsYourType ( void ) {
 	}
 }
 
-void Arg::typeSwitcher ( void ) {
+void Arg::typeChecker ( void ) {
 
 	double convertedInput;
 	convertedInput = std::strtod(this->_value.c_str(), NULL);

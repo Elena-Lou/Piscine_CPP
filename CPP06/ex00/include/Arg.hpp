@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 17:39:14 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/09 19:51:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/10 11:22:05 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ public:
 	
 	int infinityCheck( void ) const ;
 	int	whatIsYourType( void );
-	void typeSwitcher( void );
+	void typeChecker( void );
 
 	void printInfinity( void ) const ;
 	void printValue( void ) const ;

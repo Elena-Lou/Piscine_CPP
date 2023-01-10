@@ -25,6 +25,8 @@ objs/*
 
 # Executables
 convert
+serialization
+dynamic
 *.exe
 *.out
 *.app
