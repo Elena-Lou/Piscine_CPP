@@ -26,6 +26,7 @@ objs/*
 # Executables
 whatever
 iter
+array
 *.exe
 *.out
 *.app
