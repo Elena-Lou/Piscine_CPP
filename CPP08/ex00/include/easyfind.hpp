@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 10:24:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/12 16:19:42 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/12 16:38:21 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <deque>
+#include <list>
 
 class ValueNotFound : public std::exception
 	{
