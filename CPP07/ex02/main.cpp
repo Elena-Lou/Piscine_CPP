@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:03 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/12 10:08:17 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:36:53 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,17 @@ int main ( void ) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << " array tests " << std::endl;
 	
+	Array<int> numbers(1);
+	Array<int> n(18);
+
+	std::cout << numbers.getSize() << std::endl;
+
+	numbers = n;
+	std::cout << numbers.getSize() << std::endl;
+	(void)numbers;
 }
 
 // #include <iostream>

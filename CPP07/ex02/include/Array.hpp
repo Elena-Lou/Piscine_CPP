@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:12 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/12 09:55:33 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:35:32 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,9 @@ public:
 			this->_n = rhs._n;
 			if (this->_array != NULL)
 			{
-				*(this->_array) = *(rhs._array);
-				for (unsigned int i; i < rhs._n; i++)
+				delete [] this->_array;
+				this->_array = new T[this->_n];
+				for (unsigned int i = 0; i < this->_n; i++)
 				{
 					this->_array[i] = rhs._array[i];
 				}
