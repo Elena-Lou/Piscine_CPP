@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 10:23:48 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/12 16:45:55 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/16 10:28:22 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main ( void ) {
 		std::vector<int>::iterator found;
 	
 		found = easyfind(firstVector, 42);
-		// std::cout << *found << std::endl;
+		std::cout << *found << std::endl;
 	}
 	catch ( std::exception & e)
 	{
@@ -47,7 +47,7 @@ int main ( void ) {
 		std::deque<int>::iterator found;
 	
 		found = easyfind(firstDeque, 200);
-		// std::cout << *found << std::endl;
+		std::cout << *found << std::endl;
 	}
 	catch ( std::exception & e)
 	{
@@ -67,7 +67,7 @@ int main ( void ) {
 		std::list<int>::iterator found;
 	
 		found = easyfind(firstList, 45);
-		// std::cout << *found << std::endl;
+		std::cout << *found << std::endl;
 	}
 	catch ( std::exception & e)
 	{
