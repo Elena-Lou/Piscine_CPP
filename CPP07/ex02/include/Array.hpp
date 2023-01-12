@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 14:44:12 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/11 17:06:24 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/12 09:55:33 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ public:
 	Array( unsigned int n ) : _n(n) {
 		
 		this->_array = new T[n];
+		setElements(0);
 		std::cout << "[Array] Constructor" << std::endl;
 	};
-	
+
 	~Array( void ) {
 
 		if (this->_array != NULL)
@@ -49,7 +50,7 @@ public:
 		
 		std::cout << "[Array] Copy Constructor" << std::endl;
 		this->_n = src._n;
-		this->_array = new T[*src._array];
+		this->_array = new T[src._n];
 		for (unsigned int i = 0; i < src._n; i++)
 		{
 			this->_array[i] = src._array[i];
@@ -67,7 +68,6 @@ public:
 				*(this->_array) = *(rhs._array);
 				for (unsigned int i; i < rhs._n; i++)
 				{
-					std::cout << rhs._array[i] << std::endl;
 					this->_array[i] = rhs._array[i];
 				}
 			}
@@ -75,7 +75,14 @@ public:
 		return *this;
 	};
 
-	void getSize( void ) const {
+	T & operator[]( unsigned int index ) {
+		
+		if (index >= this->_n)
+			throw Array::InvalidIndex();
+		return this->_array[index];
+	}
+
+	unsigned int getSize( void ) const {
 
 		return this->_n;
 	};
@@ -87,16 +94,6 @@ public:
 		}
 	};
 
-	T & getElement ( unsigned int index ) const {
-		
-		if (index > 0 && index < this->_n)
-				return this->_array[index];
-		else
-			throw Array::InvalidIndex();
-
-	};
-	
-	
 	class InvalidIndex : public std::exception
 	{
 		public:
@@ -105,7 +102,7 @@ public:
 				return ("Invalid Index");
 			};
 	};
-
+	
 };
 
 
