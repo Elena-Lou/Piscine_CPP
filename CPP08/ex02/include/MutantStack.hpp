@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:04:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/17 10:46:24 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:28:58 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,35 @@ public:
 		return this->c.end();
 	}
 
+	reverse_iterator rbegin() {
+		
+		return this->c.rbegin();
+	}
+
+	reverse_iterator rend() {
+
+		return this->c.rend();
+	}
+
+	const_iterator cbegin() const {
+		
+		return this->c.begin();
+	}
+
+	const_iterator cend() const {
+
+		return this->c.end();
+	}
+
+	const_reverse_iterator crbegin() const {
+		
+		return this->c.rbegin();
+	}
+
+	const_reverse_iterator crend() const {
+
+		return this->c.rend();
+	}
 	
 };
 

@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:04:34 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/17 10:52:05 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/17 11:35:31 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@ int main ( void ) {
 	std::cout << "\n--- CHECK FROM SUBJECT ---\n" << std::endl;
 
 	MutantStack<int> mstack;
+
+	std::cout << std::boolalpha << "mstack is empty ? "<< mstack.empty() << std::endl;
 	mstack.push(5);
 	mstack.push(17);
+	std::cout << "mstack is empty ? "<< mstack.empty() << std::endl;
 	std::cout << "mstack.top() : " << mstack.top() << std::endl;
 	std::cout << "mstack.size() : " << mstack.size() << std::endl;
 
@@ -45,6 +48,7 @@ int main ( void ) {
 
 	std::cout << "mstack.size() : " << mstack.size() << std::endl;
 	
+	std::cout << "\nITERATOR\n" << std::endl;
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
 	
@@ -52,8 +56,47 @@ int main ( void ) {
 	--it;
 	while (it != ite)
 	{
-	std::cout << *it << std::endl;
-	++it;
+		std::cout << *it << std::endl;
+		++it;
+	}
+	
+	std::cout << "\nREVERSE_ITERATOR\n" << std::endl;
+	
+	MutantStack<int>::reverse_iterator itmstackRev = mstack.rbegin();
+	MutantStack<int>::reverse_iterator itemstackRev = mstack.rend();
+	
+	++itmstackRev;
+	--itmstackRev;
+	while (itmstackRev != itemstackRev)
+	{
+		std::cout << *itmstackRev << std::endl;
+		++itmstackRev;
+	}
+
+	std::cout << "\nCONST_ITERATOR\n" << std::endl;
+	
+	MutantStack<int>::const_iterator itmstackConst = mstack.cbegin();
+	MutantStack<int>::const_iterator itemstackConst = mstack.cend();
+	
+	++itmstackConst;
+	--itmstackConst;
+	while (itmstackConst != itemstackConst)
+	{
+		std::cout << *itmstackConst << std::endl;
+		++itmstackConst;
+	}
+
+	std::cout << "\nCONST_REVERSE_ITERATOR\n" << std::endl;
+	
+	MutantStack<int>::const_reverse_iterator itmstackConstRev = mstack.crbegin();
+	MutantStack<int>::const_reverse_iterator itemstackConstRev = mstack.crend();
+	
+	++itmstackConstRev;
+	--itmstackConstRev;
+	while (itmstackConstRev != itemstackConstRev)
+	{
+		std::cout << *itmstackConstRev << std::endl;
+		++itmstackConstRev;
 	}
 
 	std::cout << "\n --- STD::STACK ---\n" << std::endl;
@@ -82,6 +125,7 @@ int main ( void ) {
 
 	std::cout << "mlist.size() : " << mlist.size() << std::endl;
 	
+	std::cout << "\nITERATOR\n" << std::endl;
 	std::list<int>::iterator itList = mlist.begin();
 	std::list<int>::iterator iteList = mlist.end();
 	
@@ -89,8 +133,21 @@ int main ( void ) {
 	--itList;
 	while (itList != iteList)
 	{
-	std::cout << *itList << std::endl;
-	++itList;
+		std::cout << *itList << std::endl;
+		++itList;
+	}
+
+	std::cout << "\nREVERSE_ITERATOR\n" << std::endl;
+
+	std::list<int>::reverse_iterator itListRev = mlist.rbegin();
+	std::list<int>::reverse_iterator iteListRev = mlist.rend();
+	
+	++itListRev;
+	--itListRev;
+	while (itListRev != iteListRev)
+	{
+		std::cout << *itListRev << std::endl;
+		++itListRev;
 	}
 
 	return 0;
