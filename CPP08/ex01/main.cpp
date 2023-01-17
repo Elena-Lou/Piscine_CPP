@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:56:20 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/16 16:47:53 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:06:00 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,22 @@ int main ( void ) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
+
+	std::cout << "\n --- ADDRANDOMNUMBERS 10000 ---\n" << std::endl;
+
+	try {
+			
+		Span span4(10000);
+		span4.addRandomNumbers();
+		std::cout << "longest span : " << span4.longestSpan() << std::endl;
+		std::cout << "shortest span : " << span4.shortestSpan() << std::endl;
+
+	}
+	catch (std::exception & e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	
 	
 	std::cout << "\n--- MAIN FROM SUBJECT ---\n" << std::endl;
 	

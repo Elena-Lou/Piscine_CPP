@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 16:53:49 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/16 16:42:10 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/17 12:12:58 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void Span::addRandomNumbers ( void ) {
 		throw std::length_error("can't access memory space");
 	for (unsigned int i = 0; i < this->_vectorCapacity; i++)
 	{
-		int random = std::rand() % 500;
+		int random = std::rand() % 60000;
 		this->_spanVector.push_back(random);
 	}
 	std::sort(this->_spanVector.begin(), this->_spanVector.end());
