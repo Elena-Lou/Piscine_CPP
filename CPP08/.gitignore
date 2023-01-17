@@ -25,6 +25,8 @@ objs/*
 
 # Executables
 easyFind
+span
+mutantStack
 *.exe
 *.out
 *.app

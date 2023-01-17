@@ -6,7 +6,7 @@
 /*   By: elouisia <elouisia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 17:04:04 by elouisia          #+#    #+#             */
-/*   Updated: 2023/01/17 10:02:02 by elouisia         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:46:24 by elouisia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MUTANTSTACK_HPP
 
 #include <stack>
+#include <list>
 #include <iostream>
 
 /* A stack is a container with a First In Last Out structure with an underlying container
