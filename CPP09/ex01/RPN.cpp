@@ -29,6 +29,46 @@ std::string RPN::getArgs ( void ) {
 	return this->_args;
 }
 
+int RPN::calculate ( void ) {
+
+	int result;
+	std::string input = this->_args;
+
+	for (unsigned int i = 0; i < input.size(); i++)
+	{
+		if (std::isdigit(input[i]))
+			this->_rpn_stack.push(input[i] - 48);
+		else if (input[i] == ' ')
+			continue ;
+		else
+		{
+			int b = this->_rpn_stack.top();
+			this->_rpn_stack.pop();
+			int a = this->_rpn_stack.top();
+			this->_rpn_stack.pop();
+
+			switch (input[i]) {
+			case '+':
+				result = a + b;
+				break;
+			case '-':
+				result = a - b;
+				break;
+			case '*':
+				result = a * b;
+				break;
+			case '/':
+				result = a / b;
+				break;
+			default:
+				throw RPN::WrongArgumentException();
+				break;
+			}
+			this->_rpn_stack.push(result);
+		} 
+	}
+	return result;
+}
 RPN::~RPN() { 
 
 	this->_rpn_stack.empty();

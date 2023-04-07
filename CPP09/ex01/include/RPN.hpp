@@ -23,7 +23,9 @@ public:
 	RPN & operator=( RPN const & rhs );
 
 	std::string getArgs ( void );
-	
+
+	int calculate ( void );
+
 	class WrongArgumentException : public std::exception
 	{
 		public:

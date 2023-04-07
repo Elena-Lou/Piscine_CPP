@@ -15,7 +15,8 @@ int main ( int ac, char** av ) {
 
 		RPN rpn(args);
 
-		std::cout << rpn.getArgs() << std::endl;
+
+		std::cout << rpn.calculate() << std::endl;
 
 	}
 	catch (std::exception & e) {
