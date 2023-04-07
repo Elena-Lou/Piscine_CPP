@@ -3,9 +3,7 @@ SRCS = Zombie.cpp \
 		newZombie.cpp \
 		randomChump.cpp 
 
-CPPFLAGS = -MMD -MF $(@:.o=.d)
-
-INC = -I ./include/
+CPPFLAGS = -MMD -I ./include/
 
 NAME = zombie
 
@@ -24,10 +22,10 @@ all: $(NAME)
 
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) -o $@ -c $< $(CPPFLAGS) $(INC)
+	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $@
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)
