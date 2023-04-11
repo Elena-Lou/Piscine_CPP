@@ -42,13 +42,16 @@ int RPN::calculate ( void ) {
 			continue ;
 		else
 		{
-			if (this->_rpn_stack.size() != 2)
+			if (this->_rpn_stack.size() < 2)
+			{
+				std::cout << "stack size : " << this->_rpn_stack.size() << std::endl;
 				throw RPN::WrongArgumentException();
+			}
 			int b = this->_rpn_stack.top();
 			this->_rpn_stack.pop();
 			int a = this->_rpn_stack.top();
 			this->_rpn_stack.pop();
-
+			// std::cout << "a - b : " << a << " - " << b << std::endl;
 			switch (input[i]) {
 			case '+':
 				result = a + b;
