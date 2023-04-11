@@ -42,6 +42,8 @@ int RPN::calculate ( void ) {
 			continue ;
 		else
 		{
+			if (this->_rpn_stack.size() != 2)
+				throw RPN::WrongArgumentException();
 			int b = this->_rpn_stack.top();
 			this->_rpn_stack.pop();
 			int a = this->_rpn_stack.top();
@@ -58,7 +60,10 @@ int RPN::calculate ( void ) {
 				result = a * b;
 				break;
 			case '/':
-				result = a / b;
+				if (b > 0)
+					result = a / b;
+				else
+					throw RPN::WrongArgumentException();
 				break;
 			default:
 				throw RPN::WrongArgumentException();
@@ -71,8 +76,6 @@ int RPN::calculate ( void ) {
 }
 RPN::~RPN() { 
 
-	this->_rpn_stack.empty();
-	std::cout << "[RPN] Destructor" << std::endl;
 }
 
 const char* RPN::WrongArgumentException::what( void ) const throw() {
