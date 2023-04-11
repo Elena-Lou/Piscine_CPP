@@ -3,6 +3,18 @@
 
 #include <string>
 #include <iostream>
+#include <map>
+#include <ctime>
+
+
+class BcExchange {
+
+private:
+
+public:
+
+
+};
 
 
 #endif

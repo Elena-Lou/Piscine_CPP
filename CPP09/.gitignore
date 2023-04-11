@@ -24,7 +24,9 @@ objs/*
 *.dylib
 
 # Executables
+btc
 RPN
+PmergeMe
 *.exe
 *.out
 *.app
