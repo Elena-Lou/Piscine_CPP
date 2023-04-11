@@ -5,12 +5,14 @@
 #include <stack>
 #include <string>
 #include <exception>
+#include <list>
+
 
 class RPN {
 
 private:
 
-	std::stack<int> _rpn_stack;
+	std::stack<int, std::list<int> > _rpn_stack;
 	std::string 	_args;
 	RPN();
 

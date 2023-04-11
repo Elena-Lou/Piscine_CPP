@@ -43,15 +43,11 @@ int RPN::calculate ( void ) {
 		else
 		{
 			if (this->_rpn_stack.size() < 2)
-			{
-				std::cout << "stack size : " << this->_rpn_stack.size() << std::endl;
 				throw RPN::WrongArgumentException();
-			}
 			int b = this->_rpn_stack.top();
 			this->_rpn_stack.pop();
 			int a = this->_rpn_stack.top();
 			this->_rpn_stack.pop();
-			// std::cout << "a - b : " << a << " - " << b << std::endl;
 			switch (input[i]) {
 			case '+':
 				result = a + b;
@@ -63,7 +59,7 @@ int RPN::calculate ( void ) {
 				result = a * b;
 				break;
 			case '/':
-				if (b > 0)
+				if (b != 0)
 					result = a / b;
 				else
 					throw RPN::WrongArgumentException();
@@ -75,6 +71,9 @@ int RPN::calculate ( void ) {
 			this->_rpn_stack.push(result);
 		} 
 	}
+	if (this->_rpn_stack.size() != 1)
+		throw RPN::WrongArgumentException();
+
 	return result;
 }
 RPN::~RPN() { 
