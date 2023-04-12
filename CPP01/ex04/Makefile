@@ -28,6 +28,7 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -rf $(OBJS_DIR)
+	rm *.replace
 
 fclean: clean
 	rm -rf $(NAME)
