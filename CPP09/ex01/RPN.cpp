@@ -29,6 +29,15 @@ std::string RPN::getArgs ( void ) {
 	return this->_args;
 }
 
+/* if the character is a number, it is pushed onto the stack
+	When a sign is encountered, the last two elements of the stack (on top of it)
+	are removed and the corresponding operation is performed.
+	The result is pushed onto the stack
+
+	We check if :
+		- the divider is not 0
+		- if there is an appropriate number of digits and operands
+*/
 int RPN::calculate ( void ) {
 
 	int result;
