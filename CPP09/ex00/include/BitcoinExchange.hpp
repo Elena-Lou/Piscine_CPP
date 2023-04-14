@@ -8,6 +8,7 @@
 #include <fstream>
 #include <utility>
 #include <stdlib.h>
+#include <algorithm>
 
 class BcExchange {
 
@@ -23,7 +24,11 @@ public:
 
 	BcExchange & operator=( BcExchange const & rhs );
 
-	void setData( std::string key, double value );
+	void	initialiseDB( void );
+
+	void getOneDBValue( std::string date ) ;
+
+	// void setData( std::string key, double value );
 
 };
 
