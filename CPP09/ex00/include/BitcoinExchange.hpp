@@ -20,8 +20,6 @@ private:
 	std::string		_strDate;
 	double			_rate;
 	double			_amountBTC;
-	double			_valueBTC;
-
 
 public:
 
@@ -35,13 +33,13 @@ public:
 
 	void		checkInputDate( void );
 
+	void		checkInputAmount( void );
+
 	void		initialiseDB( void );
 
 	void		printOneDBValue( std::string date );
 
-	double		calculateValue( void );
-
-	void 		getDatesInputFile( char* file );
+	double		calculateValue( double & value );
 
 	void		getBTCValues( char* file );
 
@@ -50,6 +48,22 @@ public:
 		public:
 
 			const char* what( void ) const throw();
+	};
+
+	class NegativeException : public std::exception
+	{
+		public:
+
+			const char* what( void ) const throw();
+			
+	};
+
+	class TooLargeANumberException : public std::exception
+	{
+		public:
+
+			const char* what( void ) const throw();
+			
 	};
 };
 

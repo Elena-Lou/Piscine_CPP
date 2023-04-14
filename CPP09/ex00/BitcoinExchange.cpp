@@ -1,6 +1,6 @@
 #include "./include/BitcoinExchange.hpp"
 
-BcExchange::BcExchange() {
+BcExchange::BcExchange() : _rate(0), _amountBTC(0) {
 
 }
 
@@ -12,7 +12,13 @@ BcExchange::BcExchange ( BcExchange const & src ) {
 BcExchange & BcExchange::operator=( BcExchange const & rhs ) {
 
 	if (this != &rhs)
+	{
 		this->_database = rhs._database;
+		this->_rate = rhs._rate;
+		this->_amountBTC = rhs._amountBTC;
+		this->_inputDate = rhs._inputDate;
+		this->_strDate = rhs._strDate;
+	}
 	return *this;
 }
 
@@ -36,10 +42,8 @@ std::string BcExchange::extractData( std::ifstream & infile, std::string del, do
 	std::getline(infile, line);
 	pos = line.find(del);
 	date = line.substr(0, pos);
-	// std::cout << "date : " << date << std::endl;
 	line.erase(0, pos + del.length());
 	value = strtod(line.c_str(), NULL);
-	// std::cout << "value : " << value << std::endl;
 	return date;
 }
 
@@ -49,6 +53,15 @@ void BcExchange::checkInputDate( void ) {
 
 	if (!strptime(this->_inputDate.c_str(), "%Y-%m-%d", &tm))
 		throw BcExchange::BadInputException();
+		
+}
+
+void BcExchange::checkInputAmount( void ) {
+
+	if (this->_amountBTC < 0)
+		throw BcExchange::NegativeException();
+	if (this->_amountBTC > 1000)
+		throw BcExchange::TooLargeANumberException();
 		
 }
 
@@ -90,39 +103,19 @@ void BcExchange::printOneDBValue( std::string date ) {
 	}
 }
 
-double BcExchange::calculateValue( void ) {
+double BcExchange::calculateValue( double & value ) {
 
 	double rate;
-	
+
 	try {
 		rate = this->_database.at(this->_inputDate);
-		this->_valueBTC = rate * this->_amountBTC;
+		value = rate * this->_amountBTC;
 	}
 	catch (std::out_of_range & e)
 	{
 		std::cerr << "This date is not included in the DB" << std::endl;
 	}
-	return rate;
-}
-
-void BcExchange::getDatesInputFile( char* file ) {
-
-	std::ifstream	infile;
-
-	infile.open(file, std::ifstream::in);
-	if (!infile)
-	{
-		std::cerr << "Open Error" << std::endl;
-		return ;
-	}
-
-	while (infile.good())
-	{
-		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
-		this->printOneDBValue( this->_inputDate );
-	}
-
-	infile.close();
+	return value;
 }
 
 void BcExchange::getBTCValues( char* file ) {
@@ -140,16 +133,29 @@ void BcExchange::getBTCValues( char* file ) {
 	{
 		try {
 
+		double valueBTC = 0;
 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
+		if (this->_inputDate.empty())
+			continue ;
 		this->checkInputDate();
-		this->_valueBTC = this->calculateValue();
+		this->checkInputAmount();
+		if (this->_amountBTC != 0)
+			valueBTC = this->calculateValue(valueBTC);
 		std::cout << this->_inputDate << " => " ;
 		std::cout << this->_amountBTC;
-		std::cout << " = " << this->_valueBTC << std::endl;	
+		std::cout << " = " << valueBTC << std::endl;	
 		}
-		catch (std::exception & e )
+		catch (BadInputException & e )
 		{
 			std::cerr << e.what() << this->_inputDate << std::endl;
+		}
+		catch (NegativeException & e )
+		{
+			std::cerr << e.what() << std::endl;
+		}
+		catch (TooLargeANumberException & e )
+		{
+			std::cerr << e.what() << std::endl;
 		}
 	}
 
@@ -159,4 +165,14 @@ void BcExchange::getBTCValues( char* file ) {
 const char* BcExchange::BadInputException::what( void ) const throw() {
 
 	return ("Error : bad input => ");
+}
+
+const char* BcExchange::NegativeException::what( void ) const throw() {
+
+	return ("Error : not a positive number");
+}
+
+const char* BcExchange::TooLargeANumberException::what( void ) const throw() {
+
+	return ("Error : too large a number");
 }
