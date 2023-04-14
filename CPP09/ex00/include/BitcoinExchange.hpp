@@ -16,11 +16,10 @@ private:
 
 	std::map<std::string, double> _database;
 	
-	std::ifstream	_infile;
-	std::string		_line;
-	size_t			_pos;
 	std::string		_inputDate;
-	std::string		_str_date;
+	std::string		_strDate;
+	double			_rate;
+	double			_amountBTC;
 
 
 public:
@@ -31,11 +30,13 @@ public:
 
 	BcExchange & operator=( BcExchange const & rhs );
 
-	void	initialiseDB( void );
+	std::string extractData(std::ifstream & infile, std::string del, double & value );
 
-	void getOneDBValue( std::string date ) ;
+	void		initialiseDB( void );
 
-	void getDatesInputFile( char* file );
+	void 		getOneDBValue( std::string date ) ;
+
+	void 		getDatesInputFile( char* file );
 };
 
 

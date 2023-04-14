@@ -20,34 +20,46 @@ BcExchange::~BcExchange() {
 
 }
 
+	/* reads the file, while the stream is food, find the position of the 
+	delimiter in the line recovered with getline(). 
+	Saves the part of the string which is before the delimiter in a date 
+	string, removes the orignal string from the line + the delimiter.
+	Converts the remaining string to a double to either be saved as the rate or the amount of
+	bitcoins owned */
+
+std::string BcExchange::extractData( std::ifstream & infile, std::string del, double & value )
+{
+	std::string		line;
+	size_t			pos;
+	std::string 	date; 
+
+	std::getline(infile, line);
+	pos = line.find(del);
+	date = line.substr(0, pos);
+	// std::cout << "date : " << date << std::endl;
+	line.erase(0, pos + del.length());
+	value = strtod(line.c_str(), NULL);
+	// std::cout << "value : " << value << std::endl;
+	return date;
+}
 
 void	BcExchange::initialiseDB( void ) {
 
-	double			rate;
+	std::ifstream	infile;
 
-	this->_infile.open("data.csv", std::ifstream::in);
-	if (!this->_infile)
+	infile.open("data.csv", std::ifstream::in);
+	if (!infile)
 	{
 		std::cerr << "Open Error" << std::endl;
 		return ;
 	}
-	/* reads the file, while the stream is food, find the position of the 
-	comma in the line recovered with getline(). 
-	Saves the part of the string which is before the comma in a str_date 
-	string, removes the orignal string from the line + the comma.
-	Converts the remaining string to a double */
-	while (this->_infile.good())
+
+	while (infile.good())
 	{
-		std::getline(this->_infile, this->_line);
-		this->_pos = this->_line.find(",");
-		this->_str_date = this->_line.substr(0, this->_pos);
-		// std::cout << "date : " << str_date << std::endl;
-		this->_line.erase(0, this->_pos + 1);
-		rate = strtod(this->_line.c_str(), NULL);
-		// std::cout << "rate : " << rate << std::endl;
-		_database.insert( std::make_pair(this->_str_date, rate) );
+		this->_strDate = this->extractData(infile, ",", this->_rate);
+		_database.insert( std::make_pair(this->_strDate, this->_rate) );
 	}
-	this->_infile.close();
+	infile.close();
 	// int i = 0;
 	// for (std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); it++)
 	// {
@@ -71,20 +83,20 @@ void BcExchange::getOneDBValue( std::string date ) {
 
 void BcExchange::getDatesInputFile( char* file ) {
 
-	this->_infile.open(file, std::ifstream::in);
-	if (!this->_infile)
+	std::ifstream	infile;
+
+	infile.open(file, std::ifstream::in);
+	if (!infile)
 	{
 		std::cerr << "Open Error" << std::endl;
 		return ;
 	}
 
-	while (this->_infile.good())
+	while (infile.good())
 	{
-		std::getline(this->_infile, this->_line);
-		this->_pos = this->_line.find(" ");
-		this->_str_date = this->_line.substr(0, this->_pos);
-		std::cout << this->_str_date << std::endl;
-		this->getOneDBValue(this->_str_date);
+		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
+		this->getOneDBValue(this->_inputDate);
 	}
-	this->_infile.close();
+
+	infile.close();
 }
