@@ -20,21 +20,13 @@ BcExchange::~BcExchange() {
 
 }
 
-// void BcExchange::setData( std::string key, double value ) {
-
-// 	std::cout << "SET DATA" << std::endl;
-// }
 
 void	BcExchange::initialiseDB( void ) {
 
-	std::ifstream	infile;
-	std::string		line;
-	std::string		str_date;
 	double			rate;
-	size_t			pos;
 
-	infile.open("data.csv", std::ifstream::in);
-	if (!infile)
+	this->_infile.open("data.csv", std::ifstream::in);
+	if (!this->_infile)
 	{
 		std::cerr << "Open Error" << std::endl;
 		return ;
@@ -44,18 +36,18 @@ void	BcExchange::initialiseDB( void ) {
 	Saves the part of the string which is before the comma in a str_date 
 	string, removes the orignal string from the line + the comma.
 	Converts the remaining string to a double */
-	while(infile.good())
+	while (this->_infile.good())
 	{
-		std::getline(infile, line);
-		pos = line.find(",");
-		str_date = line.substr(0, pos);
+		std::getline(this->_infile, this->_line);
+		this->_pos = this->_line.find(",");
+		this->_str_date = this->_line.substr(0, this->_pos);
 		// std::cout << "date : " << str_date << std::endl;
-		line.erase(0, pos + 1);
-		rate = strtod(line.c_str(), NULL);
+		this->_line.erase(0, this->_pos + 1);
+		rate = strtod(this->_line.c_str(), NULL);
 		// std::cout << "rate : " << rate << std::endl;
-		_database.insert( std::make_pair(str_date, rate) );
+		_database.insert( std::make_pair(this->_str_date, rate) );
 	}
-	infile.close();
+	this->_infile.close();
 	// int i = 0;
 	// for (std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); it++)
 	// {
@@ -75,4 +67,24 @@ void BcExchange::getOneDBValue( std::string date ) {
 	{
 		std::cerr << "This date is not included in the DB" << std::endl;
 	}
+}
+
+void BcExchange::getDatesInputFile( char* file ) {
+
+	this->_infile.open(file, std::ifstream::in);
+	if (!this->_infile)
+	{
+		std::cerr << "Open Error" << std::endl;
+		return ;
+	}
+
+	while (this->_infile.good())
+	{
+		std::getline(this->_infile, this->_line);
+		this->_pos = this->_line.find(" ");
+		this->_str_date = this->_line.substr(0, this->_pos);
+		std::cout << this->_str_date << std::endl;
+		this->getOneDBValue(this->_str_date);
+	}
+	this->_infile.close();
 }

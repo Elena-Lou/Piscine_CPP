@@ -15,6 +15,13 @@ class BcExchange {
 private:
 
 	std::map<std::string, double> _database;
+	
+	std::ifstream	_infile;
+	std::string		_line;
+	size_t			_pos;
+	std::string		_inputDate;
+	std::string		_str_date;
+
 
 public:
 
@@ -28,8 +35,7 @@ public:
 
 	void getOneDBValue( std::string date ) ;
 
-	// void setData( std::string key, double value );
-
+	void getDatesInputFile( char* file );
 };
 
 

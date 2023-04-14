@@ -1,7 +1,7 @@
 #include "./include/BitcoinExchange.hpp"
 
 /*
-Data.csv -> map
+Data.csv ==> map
 
 	1. faire programme qui prend en param la date et 
 		qui ressort la valeur du bitcoin a cette date
@@ -35,7 +35,8 @@ int main ( int ac, char **av ) {
 	BcExchange btc;
 
 	btc.initialiseDB();
-	btc.getOneDBValue(av[1]);
+	// btc.getOneDBValue(av[1]);
+	btc.getDatesInputFile(av[1]);
 	
 
 	std::cout << "\n --- test date --- \n" << std::endl;
