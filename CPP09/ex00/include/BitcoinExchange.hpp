@@ -33,6 +33,8 @@ public:
 
 	std::string extractData(std::ifstream & infile, std::string del, double & value );
 
+	void		checkInputDate( void );
+
 	void		initialiseDB( void );
 
 	void		printOneDBValue( std::string date );
@@ -42,6 +44,13 @@ public:
 	void 		getDatesInputFile( char* file );
 
 	void		getBTCValues( char* file );
+
+	class BadInputException : public std::exception 
+	{
+		public:
+
+			const char* what( void ) const throw();
+	};
 };
 
 

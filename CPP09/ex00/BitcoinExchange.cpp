@@ -43,6 +43,15 @@ std::string BcExchange::extractData( std::ifstream & infile, std::string del, do
 	return date;
 }
 
+void BcExchange::checkInputDate( void ) {
+
+	struct tm tm;
+
+	if (!strptime(this->_inputDate.c_str(), "%Y-%m-%d", &tm))
+		throw BcExchange::BadInputException();
+		
+}
+
 void	BcExchange::initialiseDB( void ) {
 
 	std::ifstream	infile;
@@ -96,26 +105,6 @@ double BcExchange::calculateValue( void ) {
 	return rate;
 }
 
-// void BcExchange::getDatesInputFile( char* file ) {
-
-// 	std::ifstream	infile;
-
-// 	infile.open(file, std::ifstream::in);
-// 	if (!infile)
-// 	{
-// 		std::cerr << "Open Error" << std::endl;
-// 		return ;
-// 	}
-
-// 	while (infile.good())
-// 	{
-// 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
-// 		this->printOneDBValue(this->_inputDate);
-// 	}
-
-// 	infile.close();
-// }
-
 void BcExchange::getDatesInputFile( char* file ) {
 
 	std::ifstream	infile;
@@ -149,12 +138,25 @@ void BcExchange::getBTCValues( char* file ) {
 
 	while (infile.good())
 	{
+		try {
+
 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
+		this->checkInputDate();
 		this->_valueBTC = this->calculateValue();
 		std::cout << this->_inputDate << " => " ;
 		std::cout << this->_amountBTC;
 		std::cout << " = " << this->_valueBTC << std::endl;	
+		}
+		catch (std::exception & e )
+		{
+			std::cerr << e.what() << this->_inputDate << std::endl;
+		}
 	}
 
 	infile.close();
+}
+
+const char* BcExchange::BadInputException::what( void ) const throw() {
+
+	return ("Error : bad input => ");
 }
