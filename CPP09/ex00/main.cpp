@@ -35,8 +35,8 @@ int main ( int ac, char **av ) {
 	BcExchange btc;
 
 	btc.initialiseDB();
-	// btc.getOneDBValue(av[1]);
-	btc.getDatesInputFile(av[1]);
+	// btc.getDatesInputFile(av[1]);
+	btc.getBTCValues(av[1]);
 	
 
 	std::cout << "\n --- test date --- \n" << std::endl;

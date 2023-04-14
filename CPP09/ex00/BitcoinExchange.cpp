@@ -68,7 +68,7 @@ void	BcExchange::initialiseDB( void ) {
 	// }
 }
 
-void BcExchange::getOneDBValue( std::string date ) {
+void BcExchange::printOneDBValue( std::string date ) {
 
 	try {
 		double res;
@@ -80,6 +80,41 @@ void BcExchange::getOneDBValue( std::string date ) {
 		std::cerr << "This date is not included in the DB" << std::endl;
 	}
 }
+
+double BcExchange::calculateValue( void ) {
+
+	double rate;
+	
+	try {
+		rate = this->_database.at(this->_inputDate);
+		this->_valueBTC = rate * this->_amountBTC;
+	}
+	catch (std::out_of_range & e)
+	{
+		std::cerr << "This date is not included in the DB" << std::endl;
+	}
+	return rate;
+}
+
+// void BcExchange::getDatesInputFile( char* file ) {
+
+// 	std::ifstream	infile;
+
+// 	infile.open(file, std::ifstream::in);
+// 	if (!infile)
+// 	{
+// 		std::cerr << "Open Error" << std::endl;
+// 		return ;
+// 	}
+
+// 	while (infile.good())
+// 	{
+// 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
+// 		this->printOneDBValue(this->_inputDate);
+// 	}
+
+// 	infile.close();
+// }
 
 void BcExchange::getDatesInputFile( char* file ) {
 
@@ -95,7 +130,30 @@ void BcExchange::getDatesInputFile( char* file ) {
 	while (infile.good())
 	{
 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
-		this->getOneDBValue(this->_inputDate);
+		this->printOneDBValue( this->_inputDate );
+	}
+
+	infile.close();
+}
+
+void BcExchange::getBTCValues( char* file ) {
+
+	std::ifstream	infile;
+
+	infile.open(file, std::ifstream::in);
+	if (!infile)
+	{
+		std::cerr << "Open Error" << std::endl;
+		return ;
+	}
+
+	while (infile.good())
+	{
+		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
+		this->_valueBTC = this->calculateValue();
+		std::cout << this->_inputDate << " => " ;
+		std::cout << this->_amountBTC;
+		std::cout << " = " << this->_valueBTC << std::endl;	
 	}
 
 	infile.close();

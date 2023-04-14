@@ -20,6 +20,7 @@ private:
 	std::string		_strDate;
 	double			_rate;
 	double			_amountBTC;
+	double			_valueBTC;
 
 
 public:
@@ -34,9 +35,13 @@ public:
 
 	void		initialiseDB( void );
 
-	void 		getOneDBValue( std::string date ) ;
+	void		printOneDBValue( std::string date );
+
+	double		calculateValue( void );
 
 	void 		getDatesInputFile( char* file );
+
+	void		getBTCValues( char* file );
 };
 
 
