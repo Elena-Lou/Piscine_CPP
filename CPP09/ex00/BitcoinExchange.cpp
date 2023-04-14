@@ -109,12 +109,17 @@ double BcExchange::calculateValue( double & value ) {
 
 	try {
 		rate = this->_database.at(this->_inputDate);
-		value = rate * this->_amountBTC;
 	}
 	catch (std::out_of_range & e)
 	{
 		std::cerr << "This date is not included in the DB" << std::endl;
+		std::map<std::string, double>::iterator itlow;
+		itlow = this->_database.lower_bound(this->_inputDate);
+		itlow--;
+		rate = itlow->second;
 	}
+		std::cout << this->_inputDate << " : " << rate << std::endl;
+		value = rate * this->_amountBTC;
 	return value;
 }
 
