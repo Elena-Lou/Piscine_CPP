@@ -17,10 +17,6 @@ Data.csv ==> map
 	- map.lower_bound (std::string date)
 	- map.insert(std::make_pair("key", "value"));
 
-	WHAT TO DO NEXT :
-
-	- methods
-	- insert in the map
 */
 
 int main ( int ac, char **av ) {
@@ -35,9 +31,8 @@ int main ( int ac, char **av ) {
 	BcExchange btc;
 
 	btc.initialiseDB();
-	// btc.getDatesInputFile(av[1]);
+
 	btc.getBTCValues(av[1]);
-	
 	
 	return 0;
 }

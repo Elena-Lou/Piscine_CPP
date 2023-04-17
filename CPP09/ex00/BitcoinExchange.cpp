@@ -77,11 +77,13 @@ void	BcExchange::initialiseDB( void ) {
 	}
 
 	while (infile.good())
+		
 	{
 		this->_strDate = this->extractData(infile, ",", this->_rate);
 		_database.insert( std::make_pair(this->_strDate, this->_rate) );
 	}
 	infile.close();
+
 	// int i = 0;
 	// for (std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); it++)
 	// {

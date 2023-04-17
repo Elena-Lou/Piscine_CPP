@@ -9,6 +9,7 @@
 #include <utility>
 #include <stdlib.h>
 #include <algorithm>
+#include <stdlib.h>
 
 class BcExchange {
 
