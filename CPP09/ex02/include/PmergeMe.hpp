@@ -2,12 +2,17 @@
 #define PMERGEME_HPP
 
 #include <cctype>
+#include <cstring>
+#include <stdlib.h>
 #include <iostream>
+#include <vector>
 
 class PmergeMe
 {
 
 private:
+
+    std::vector<int> _initial;
 
 public:
 
@@ -16,6 +21,8 @@ public:
     ~PmergeMe();
 
     PmergeMe & operator=( PmergeMe const & rhs );
+
+    void initialiseContainers( int ac, char** arg );
 
 };
 

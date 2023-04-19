@@ -16,7 +16,9 @@ int main (int ac, char** av ) {
 
     else 
     {
-        std::cout << "I will sort this !" << std::endl;
+        PmergeMe test;
+
+        test.initialiseContainers(ac, av);
     }
     return 0;
 }
