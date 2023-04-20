@@ -22,7 +22,9 @@ public:
 
     PmergeMe & operator=( PmergeMe const & rhs );
 
+    void printVector( void );
     void initialiseContainers( int ac, char** arg );
+    void insertionSort( void );
 
 };
 

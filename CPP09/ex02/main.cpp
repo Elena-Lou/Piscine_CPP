@@ -19,6 +19,7 @@ int main (int ac, char** av ) {
         PmergeMe test;
 
         test.initialiseContainers(ac, av);
+        test.insertionSort();
     }
     return 0;
 }
