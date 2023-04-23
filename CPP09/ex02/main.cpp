@@ -1,5 +1,18 @@
 #include "PmergeMe.hpp"
 
+/* 
+[ 3, 2, 5, 4]
+-> [3, 2] [5, 4]
+
+-> [2, 3] [4, 5]
+
+-> 2 < 4 | 3 < 4 | => [2, 3, 4, 5]
+
+- comme philo : avoir une variable start et end,
+la différence entre les deux donne le tps d'execution
+
+*/
+
 int main (int ac, char** av ) {
 
     if (ac < 2)
@@ -8,18 +21,21 @@ int main (int ac, char** av ) {
         return 1;
     }
     
-    else if (ac == 2)
-    {
-        std::cout << "sorted sequence : " << av[1] << std::endl;
-        return 0;
-    }
-
     else 
     {
+		try {
+
         PmergeMe test;
 
         test.initialiseContainers(ac, av);
-        test.insertionSort();
+		int size = test.getSizeVector();
+        // test.insertionSort();
+		test.mergeSort(0, size - 1);
+		}
+		catch (std::exception & e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
     }
     return 0;
 }
