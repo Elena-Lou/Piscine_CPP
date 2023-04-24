@@ -41,9 +41,11 @@ int main (int ac, char** av ) {
 
         // test.insertionSort();
 		// test.mergeSort(0, size - 1);
-		
+
 		std::cout << std::boolalpha << test.isEven() << std::endl;
-		std::cout << test.getStraggler() << std::endl;
+		// std::cout << test.getStraggler() << std::endl;
+		test.divideIntoPairs();
+		test.sortEachPair();
 		}
 		catch (std::exception & e)
 		{

@@ -32,6 +32,17 @@ void PmergeMe::printVector( void ) {
     
 }
 
+void PmergeMe::printPairsVector( void ) {
+
+	std::vector<std::pair<int, int> >::iterator it;
+	for (it = _pairsVector.begin(); it != _pairsVector.end(); it++)
+    {
+       	std::cout << "[" << it->first << ", " << it->second << "] ";
+    }
+	std::cout << std::endl;
+    
+}
+
 int PmergeMe::getStraggler( void ) const {
 
 	return this->_straggler;
@@ -67,6 +78,40 @@ bool PmergeMe::isEven( void ) {
 		return false;
 	}
 	return true;
+}
+
+void PmergeMe::divideIntoPairs( void ) {
+
+	std::vector<int>::iterator first;
+
+	for (std::vector<int>::iterator second = this->_argVector.begin();\
+	second != this->_argVector.end(); second++)
+	{
+		first = second;
+		second++;
+		std::cout << "first : " << *first << " - second : " << *second << std::endl;
+		this->_pairsVector.push_back(std::make_pair(*first, *second));
+	}
+	this->printPairsVector();
+
+}
+
+void PmergeMe::sortEachPair( void ) {
+
+	std::cout << "SORT EACH PAIR" << std::endl;
+	std::vector<std::pair<int, int> >::iterator it;
+	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
+	{
+		if (it->first > it->second)
+		{
+			int tmp;
+			tmp = it->first;
+			it->first = it->second;
+			it->second = tmp;
+		}
+
+	}
+	this->printPairsVector();
 }
 
 const char* PmergeMe::BadInputException::what( void ) const throw() {

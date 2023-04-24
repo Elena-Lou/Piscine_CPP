@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <exception>
+#include <algorithm>
 
 class PmergeMe
 {
@@ -14,6 +15,7 @@ class PmergeMe
 private:
 
     std::vector<int> _argVector;
+    std::vector<std::pair<int, int> > _pairsVector;
     int             _straggler;
     bool            _isEven;
 
@@ -26,12 +28,17 @@ public:
     PmergeMe & operator=( PmergeMe const & rhs );
 
     int     getStraggler( void ) const;
-    bool isEven( void );
-    void printVector( void );
-    void initialiseContainers( int ac, char** arg );
-    void insertionSort( void );
-    void mergeSort( int begin, int end );
-    void merge(int begin, int mid, int end );
+    bool    isEven( void );
+    void    printVector( void );
+    void    printPairsVector( void );
+
+    void    initialiseContainers( int ac, char** arg );
+    void    divideIntoPairs( void );
+    void    sortEachPair( void );
+
+    void    insertionSort( void );
+    void    mergeSort( int begin, int end );
+    void    merge(int begin, int mid, int end );
 
     class BadInputException : public std::exception
     {
