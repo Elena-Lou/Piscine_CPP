@@ -1,15 +1,25 @@
 #include "PmergeMe.hpp"
 
 /* 
-[ 3, 2, 5, 4]
--> [3, 2] [5, 4]
+    1. determine size on the sequence : if odd numbered, set aside the last element 
+    in a "straggler variable"
 
--> [2, 3] [4, 5]
+    2. divide the sequence into pairs of two values
 
--> 2 < 4 | 3 < 4 | => [2, 3, 4, 5]
+    3. sort each pair bitwise [less, greater]
 
-- comme philo : avoir une variable start et end,
-la différence entre les deux donne le tps d'execution
+    4. sort the sequence recursively by the value of the largest pair
+
+    5. create a new final vector and initiate it with the highest values of each pair
+
+    6. the remaining values are set aside in a pending vector
+
+    7. use Jacobsthal numbers to insert the values from pending to final 
+    (first insert the first one at index 0, then pending[3], pending[2], pending[5], pending[4]... )
+    /!\ to check that the nextOp is not greater than the size of the array
+    + operate from the nextOp (index) to the lastOp (index) by decrementing the value of the index
+
+    8. if a straggler was set aside, insert it last in the final vector 
 
 */
 
@@ -28,9 +38,12 @@ int main (int ac, char** av ) {
         PmergeMe test;
 
         test.initialiseContainers(ac, av);
-		int size = test.getSizeVector();
+
         // test.insertionSort();
-		test.mergeSort(0, size - 1);
+		// test.mergeSort(0, size - 1);
+		
+		std::cout << std::boolalpha << test.isEven() << std::endl;
+		std::cout << test.getStraggler() << std::endl;
 		}
 		catch (std::exception & e)
 		{

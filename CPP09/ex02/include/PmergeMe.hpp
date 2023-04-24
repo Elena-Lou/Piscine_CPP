@@ -13,7 +13,9 @@ class PmergeMe
 
 private:
 
-    std::vector<int> _initial;
+    std::vector<int> _argVector;
+    int             _straggler;
+    bool            _isEven;
 
 public:
 
@@ -23,8 +25,8 @@ public:
 
     PmergeMe & operator=( PmergeMe const & rhs );
 
-    int getSizeVector( void );
-
+    int     getStraggler( void ) const;
+    bool isEven( void );
     void printVector( void );
     void initialiseContainers( int ac, char** arg );
     void insertionSort( void );
