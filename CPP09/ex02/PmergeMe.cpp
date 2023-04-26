@@ -48,6 +48,11 @@ int PmergeMe::getStraggler( void ) const {
 	return this->_straggler;
 }
 
+int PmergeMe::getSize( void ) const {
+
+	return this->_pairsVector.size();
+}
+
 void PmergeMe::initialiseContainers( int ac, char** arg ) {
 
     std::cout << "INIT CONTAINERS" << std::endl;
@@ -89,7 +94,6 @@ void PmergeMe::divideIntoPairs( void ) {
 	{
 		first = second;
 		second++;
-		std::cout << "first : " << *first << " - second : " << *second << std::endl;
 		this->_pairsVector.push_back(std::make_pair(*first, *second));
 	}
 	this->printPairsVector();
@@ -103,15 +107,28 @@ void PmergeMe::sortEachPair( void ) {
 	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
 	{
 		if (it->first > it->second)
-		{
-			int tmp;
-			tmp = it->first;
-			it->first = it->second;
-			it->second = tmp;
-		}
-
+			std::swap(it->first, it->second);
 	}
 	this->printPairsVector();
+}
+
+void PmergeMe::recursivelySortPairs( int size ) {
+	
+	//base case to stop recursivity to go any deeper
+	if (size <= 1)
+		return;
+
+	this->recursivelySortPairs(size - 1);
+
+	std::pair<int, int> last = this->_pairsVector[size - 1];
+	int j = size - 2;
+
+	while (j >= 0 && this->_pairsVector[j].second > last.second)
+	{
+		this->_pairsVector[j + 1] = this->_pairsVector[j];
+		j--;
+	}
+	this->_pairsVector[j + 1] = last;
 }
 
 const char* PmergeMe::BadInputException::what( void ) const throw() {

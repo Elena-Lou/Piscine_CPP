@@ -8,6 +8,7 @@
 #include <vector>
 #include <exception>
 #include <algorithm>
+#include <utility>
 
 class PmergeMe
 {
@@ -31,10 +32,12 @@ public:
     bool    isEven( void );
     void    printVector( void );
     void    printPairsVector( void );
+    int     getSize( void ) const;
 
     void    initialiseContainers( int ac, char** arg );
     void    divideIntoPairs( void );
     void    sortEachPair( void );
+    void    recursivelySortPairs( int n );
 
     void    insertionSort( void );
     void    mergeSort( int begin, int end );

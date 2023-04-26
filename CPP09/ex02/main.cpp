@@ -2,11 +2,11 @@
 
 /* 
     1. determine size on the sequence : if odd numbered, set aside the last element 
-    in a "straggler variable"
+    in a "straggler variable" => DONE
 
-    2. divide the sequence into pairs of two values
+    2. divide the sequence into pairs of two values  => DONE
 
-    3. sort each pair bitwise [less, greater]
+    3. sort each pair bitwise [less, greater] => DONE
 
     4. sort the sequence recursively by the value of the largest pair
 
@@ -46,6 +46,8 @@ int main (int ac, char** av ) {
 		// std::cout << test.getStraggler() << std::endl;
 		test.divideIntoPairs();
 		test.sortEachPair();
+        int size = test.getSize();
+        test.recursivelySortPairs(size);
 		}
 		catch (std::exception & e)
 		{
