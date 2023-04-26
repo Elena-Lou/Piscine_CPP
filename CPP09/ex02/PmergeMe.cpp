@@ -32,6 +32,16 @@ void PmergeMe::printVector( void ) {
     
 }
 
+void PmergeMe::printVector( std::vector<int> vector ) {
+
+	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
+    {
+       	std::cout << "[" << *it << "] ";
+    }
+	std::cout << std::endl;
+    
+}
+
 void PmergeMe::printPairsVector( void ) {
 
 	std::vector<std::pair<int, int> >::iterator it;
@@ -129,6 +139,24 @@ void PmergeMe::recursivelySortPairs( int size ) {
 		j--;
 	}
 	this->_pairsVector[j + 1] = last;
+}
+
+void PmergeMe::splitPairs( void ) {
+
+	std::vector<int> sortedVector;
+	std::vector<int> pendingValues;
+
+	std::vector<std::pair<int, int> >::iterator it;
+
+	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
+	{
+		pendingValues.push_back(it->first);
+		sortedVector.push_back(it->second);
+	}
+	this->_pairsVector.clear();
+	this->printPairsVector();
+	this->printVector(sortedVector);
+	this->printVector(pendingValues);
 }
 
 const char* PmergeMe::BadInputException::what( void ) const throw() {

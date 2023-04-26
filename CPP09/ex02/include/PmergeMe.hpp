@@ -31,6 +31,7 @@ public:
     int     getStraggler( void ) const;
     bool    isEven( void );
     void    printVector( void );
+    void    printVector( std::vector<int> vector );
     void    printPairsVector( void );
     int     getSize( void ) const;
 
@@ -38,6 +39,7 @@ public:
     void    divideIntoPairs( void );
     void    sortEachPair( void );
     void    recursivelySortPairs( int n );
+    void    splitPairs( void );
 
     void    insertionSort( void );
     void    mergeSort( int begin, int end );

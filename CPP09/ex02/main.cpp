@@ -8,11 +8,11 @@
 
     3. sort each pair bitwise [less, greater] => DONE
 
-    4. sort the sequence recursively by the value of the largest pair
+    4. sort the sequence recursively by the value of the largest pair => DOOOOOOOONEEEEEE
 
-    5. create a new final vector and initiate it with the highest values of each pair
+    5. create a new final vector and initiate it with the highest values of each pair => DONE
 
-    6. the remaining values are set aside in a pending vector
+    6. the remaining values are set aside in a pending vector => DONE
 
     7. use Jacobsthal numbers to insert the values from pending to final 
     (first insert the first one at index 0, then pending[3], pending[2], pending[5], pending[4]... )
@@ -39,15 +39,13 @@ int main (int ac, char** av ) {
 
         test.initialiseContainers(ac, av);
 
-        // test.insertionSort();
-		// test.mergeSort(0, size - 1);
-
 		std::cout << std::boolalpha << test.isEven() << std::endl;
 		// std::cout << test.getStraggler() << std::endl;
 		test.divideIntoPairs();
 		test.sortEachPair();
         int size = test.getSize();
         test.recursivelySortPairs(size);
+        test.splitPairs();
 		}
 		catch (std::exception & e)
 		{
