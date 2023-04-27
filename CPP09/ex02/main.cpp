@@ -46,6 +46,7 @@ int main (int ac, char** av ) {
         int size = test.getSize();
         test.recursivelySortPairs(size);
         test.splitPairs();
+        test.insertPending();
 		}
 		catch (std::exception & e)
 		{

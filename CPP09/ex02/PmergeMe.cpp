@@ -143,20 +143,66 @@ void PmergeMe::recursivelySortPairs( int size ) {
 
 void PmergeMe::splitPairs( void ) {
 
-	std::vector<int> sortedVector;
-	std::vector<int> pendingValues;
-
 	std::vector<std::pair<int, int> >::iterator it;
 
 	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
-	{
-		pendingValues.push_back(it->first);
-		sortedVector.push_back(it->second);
-	}
-	this->_pairsVector.clear();
+		this->_sortedVector.push_back(it->second);
+
 	this->printPairsVector();
-	this->printVector(sortedVector);
-	this->printVector(pendingValues);
+	this->printVector(this->_sortedVector);
+}
+
+int PmergeMe::jacobsthal( int n ) {
+
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+
+	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
+}
+
+void PmergeMe::findSpot ( std::pair<int,int> pair ) {
+
+	std::cout << "FIND SPOT" << std::endl;
+
+	std::vector<int>::iterator upTo = std::find(this->_sortedVector.begin(), this->_sortedVector.end(), pair.second);
+	std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), upTo, pair.first);
+
+	this->_sortedVector.insert(valuePos, pair.first);
+}
+
+void PmergeMe::insertPending( void ) {
+
+	std::cout << "INSERT PENDING" << std::endl;
+	std::vector<int>::iterator it;
+	it = this->_sortedVector.begin();
+	this->_sortedVector.insert(it, this->_pairsVector[0].first);
+	this->printVector(this->_sortedVector);
+
+	// int nextJacobIndex = 3;
+	// int prevJacobIndex = 0;
+	// int i = nextJacobIndex;
+	// // int pendingLen = this->_pairsVector.size();
+	// while (i > prevJacobIndex)
+	// {
+	// 	this->findSpot(this->_pairsVector[i]);
+	// 	i--;
+	// 	if (i == prevJacobIndex)
+	// 	{
+	// 		std::cout << "IF" << std::endl;
+	// 		prevJacobIndex = nextJacobIndex;
+	// 		nextJacobIndex = jacobsthal(prevJacobIndex + 1);
+	// 		i = nextJacobIndex;
+	// 		if (i > static_cast<int>(this->_pairsVector.size()))
+	// 		{
+	// 			i = static_cast<int>(this->_pairsVector.size());
+	// 		}
+	// 		else if (std::is_sorted(this->_sortedVector.begin(), this->_sortedVector.end()))
+	// 			break;
+	// 	}
+	// }
+	// this->printVector(this->_sortedVector);
 }
 
 const char* PmergeMe::BadInputException::what( void ) const throw() {

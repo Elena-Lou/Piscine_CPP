@@ -17,6 +17,8 @@ private:
 
     std::vector<int> _argVector;
     std::vector<std::pair<int, int> > _pairsVector;
+	std::vector<int> _sortedVector;
+	int*			 _jacobSequence;
     int             _straggler;
     bool            _isEven;
 
@@ -34,12 +36,16 @@ public:
     void    printVector( std::vector<int> vector );
     void    printPairsVector( void );
     int     getSize( void ) const;
+    int     jacobsthal( int n );
 
     void    initialiseContainers( int ac, char** arg );
     void    divideIntoPairs( void );
     void    sortEachPair( void );
     void    recursivelySortPairs( int n );
     void    splitPairs( void );
+	void	insertPending( void );
+	void	buildJacobSequence( void );
+	void	findSpot( std::pair<int,int> pair );
 
     void    insertionSort( void );
     void    mergeSort( int begin, int end );
