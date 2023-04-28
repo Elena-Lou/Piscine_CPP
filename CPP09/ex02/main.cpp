@@ -40,7 +40,7 @@ int main (int ac, char** av ) {
         test.initialiseContainers(ac, av);
 
 		std::cout << std::boolalpha << test.isEven() << std::endl;
-		// std::cout << test.getStraggler() << std::endl;
+		std::cout << test.getStraggler() << std::endl;
 		test.divideIntoPairs();
 		test.sortEachPair();
         int size = test.getSize();

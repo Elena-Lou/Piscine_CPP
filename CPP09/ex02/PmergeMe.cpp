@@ -180,29 +180,19 @@ void PmergeMe::insertPending( void ) {
 	this->_sortedVector.insert(it, this->_pairsVector[0].first);
 	this->printVector(this->_sortedVector);
 
-	// int nextJacobIndex = 3;
-	// int prevJacobIndex = 0;
-	// int i = nextJacobIndex;
-	// // int pendingLen = this->_pairsVector.size();
-	// while (i > prevJacobIndex)
-	// {
-	// 	this->findSpot(this->_pairsVector[i]);
-	// 	i--;
-	// 	if (i == prevJacobIndex)
-	// 	{
-	// 		std::cout << "IF" << std::endl;
-	// 		prevJacobIndex = nextJacobIndex;
-	// 		nextJacobIndex = jacobsthal(prevJacobIndex + 1);
-	// 		i = nextJacobIndex;
-	// 		if (i > static_cast<int>(this->_pairsVector.size()))
-	// 		{
-	// 			i = static_cast<int>(this->_pairsVector.size());
-	// 		}
-	// 		else if (std::is_sorted(this->_sortedVector.begin(), this->_sortedVector.end()))
-	// 			break;
-	// 	}
-	// }
-	// this->printVector(this->_sortedVector);
+	std::vector<std::pair<int, int> >::iterator penValue;
+	
+	for (penValue = this->_pairsVector.begin() + 1; penValue != this->_pairsVector.end(); penValue++)
+	{
+		std::cout << "FOR LOOP" << std::endl;
+		findSpot(*penValue);
+	}
+	if (!this->isEven())
+	{
+		std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), this->_sortedVector.begin(), this->_straggler);
+		this->_sortedVector.insert(valuePos, this->_straggler);
+	}
+	this->printVector(this->_sortedVector);
 }
 
 const char* PmergeMe::BadInputException::what( void ) const throw() {
