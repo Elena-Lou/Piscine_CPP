@@ -28,7 +28,8 @@ private:
 	
     int									_straggler;
     bool								_isEven;
-
+	int									_size;
+	
 public:
 
     PmergeMe();

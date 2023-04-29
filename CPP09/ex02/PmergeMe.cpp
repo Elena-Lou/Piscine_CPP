@@ -58,7 +58,7 @@ void PmergeMe::sortVector( int ac, char** av ) {
         this->insertPendingVector();
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
         double elapsedTime = (1000 * end.tv_sec + 1e-6 * end.tv_nsec) - (1000 * start.tv_sec + 1e-6 * start.tv_nsec);
-        std::cout << std::setprecision(12) << "Time to process a range of " << size*2 <<  " elements with std::vector : " << elapsedTime << "ms\n" << std::endl;
+        std::cout << std::setprecision(12) << "Time to process a range of " << this->_size <<  " elements with std::vector : " << elapsedTime << "ms\n" << std::endl;
 }
 
 void PmergeMe::initialiseVector( int ac, char** arg ) {
@@ -79,6 +79,7 @@ void PmergeMe::initialiseVector( int ac, char** arg ) {
     }
 	std::cout << "Before : ";
 	this->printVector(this->_argVector);
+	this->_size = this->_argVector.size();
 	this->_isEven = this->isEvenVector();
 }
 
@@ -208,7 +209,7 @@ void PmergeMe::sortDeque( int ac, char** av ) {
         this->insertPendingDeque();
 		clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
         double elapsedTime = (1000 * end.tv_sec + 1e-6 * end.tv_nsec) - (1000 * start.tv_sec + 1e-6 * start.tv_nsec);
-        std::cout << std::setprecision(12) << "Time to process a range of " << size*2 <<  " elements with std::deque : " << elapsedTime << "ms" << std::endl;
+        std::cout << std::setprecision(6) << "Time to process a range of " << this->_size <<  " elements with std::deque : " << elapsedTime << "ms" << std::endl;
 }
 
 void PmergeMe::initialiseDeque( int ac, char** arg ) {
@@ -229,6 +230,7 @@ void PmergeMe::initialiseDeque( int ac, char** arg ) {
     }
 	std::cout << "Before : ";
 	this->printDeque(this->_argDeque);
+	this->_size = this->_argDeque.size();
 	this->_isEven = this->isEvenDeque();
 }
 

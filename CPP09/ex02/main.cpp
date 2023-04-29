@@ -25,7 +25,7 @@
 
 int main (int ac, char** av ) {
 
-    if (ac < 2)
+    if (ac < 3)
     {
         std::cerr << "Wrong number of arguments" << std::endl;
         return 1;
