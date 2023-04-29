@@ -35,11 +35,11 @@ int main (int ac, char** av ) {
     {
 		try {
 
-        PmergeMe test;
-        
+        PmergeMe test;        
 
 
         test.sortVector(ac, av);
+        test.sortDeque(ac, av);
 
 		}
 		catch (std::exception & e)
