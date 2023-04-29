@@ -17,9 +17,9 @@
     7. use Jacobsthal numbers to insert the values from pending to final 
     (first insert the first one at index 0, then pending[3], pending[2], pending[5], pending[4]... )
     /!\ to check that the nextOp is not greater than the size of the array
-    + operate from the nextOp (index) to the lastOp (index) by decrementing the value of the index
+    + operate from the nextOp (index) to the lastOp (index) by decrementing the value of the index => DONE, sort of....
 
-    8. if a straggler was set aside, insert it last in the final vector 
+    8. if a straggler was set aside, insert it last in the final vector => DONE
 
 */
 
@@ -36,14 +36,11 @@ int main (int ac, char** av ) {
 		try {
 
         PmergeMe test;
+        
 
-        test.initialiseContainers(ac, av);
-		test.divideIntoPairs();
-		test.sortEachPair();
-        int size = test.getSize();
-        test.recursivelySortPairs(size);
-        test.splitPairs();
-        test.insertPending();
+
+        test.sortVector(ac, av);
+
 		}
 		catch (std::exception & e)
 		{

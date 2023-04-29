@@ -22,16 +22,6 @@ PmergeMe::~PmergeMe() {
 
 }
 
-void PmergeMe::printVector( void ) {
-
-	for (std::vector<int>::iterator it = _argVector.begin(); it != _argVector.end(); it++)
-    {
-       	std::cout << "[" << *it << "] ";
-    }
-	std::cout << std::endl;
-    
-}
-
 void PmergeMe::printVector( std::vector<int> vector ) {
 
 	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
@@ -63,9 +53,25 @@ int PmergeMe::getSize( void ) const {
 	return this->_pairsVector.size();
 }
 
+void PmergeMe::sortVector( int ac, char** av ) {
+
+        struct timespec start, end;
+        clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start);
+
+        this->initialiseContainers(ac, av);
+		this->divideIntoPairs();
+		this->sortEachPair();
+        int size = this->getSize();
+        this->recursivelySortPairs(size);
+        this->splitPairs();
+        this->insertPending();
+		        clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &end);
+        double elapsedTime = (1000 * end.tv_sec + 1e-6 * end.tv_nsec) - (1000 * start.tv_sec + 1e-6 * start.tv_nsec);
+        std::cout << std::setprecision(12) << "Time to process a range of " << size*2 <<  " elements with std::vector : " << elapsedTime << "ms" << std::endl;
+}
+
 void PmergeMe::initialiseContainers( int ac, char** arg ) {
 
-    std::cout << "INIT CONTAINERS" << std::endl;
     int value;
 
     for (int i = 1; i < ac; i++)
@@ -80,7 +86,8 @@ void PmergeMe::initialiseContainers( int ac, char** arg ) {
 			throw PmergeMe::BadInputException();
         this->_argVector.push_back(value);
     }
-	this->printVector();
+	std::cout << "Before : ";
+	this->printVector(this->_argVector);
 	this->_isEven = this->isEven();
 }
 
@@ -91,7 +98,6 @@ bool PmergeMe::isEven( void ) {
 	{
 		this->_straggler = this->_argVector.back();
 		this->_argVector.pop_back();
-		std::cout << "straggler : " << this->_straggler << std::endl;
 		return false;
 	}
 	return true;
@@ -108,24 +114,21 @@ void PmergeMe::divideIntoPairs( void ) {
 		second++;
 		this->_pairsVector.push_back(std::make_pair(*first, *second));
 	}
-	this->printPairsVector();
 }
 
 void PmergeMe::sortEachPair( void ) {
 
-	std::cout << "SORT EACH PAIR" << std::endl;
 	std::vector<std::pair<int, int> >::iterator it;
 	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
 	{
 		if (it->first > it->second)
 			std::swap(it->first, it->second);
 	}
-	this->printPairsVector();
 }
 
 void PmergeMe::recursivelySortPairs( int size ) {
 	
-	//base case to stop recursivity to go any deeper
+	//base case to stop recursivity
 	if (size <= 1)
 		return;
 
@@ -148,14 +151,9 @@ void PmergeMe::splitPairs( void ) {
 
 	for (it = this->_pairsVector.begin(); it != this->_pairsVector.end(); it++)
 		this->_sortedVector.push_back(it->second);
-
-	this->printPairsVector();
-	this->printVector(this->_sortedVector);
 }
 
 void PmergeMe::findSpot ( std::pair<int,int> pair ) {
-
-	std::cout << "FIND SPOT" << std::endl;
 
 	std::vector<int>::iterator upTo = std::find(this->_sortedVector.begin(), this->_sortedVector.end(), pair.second);
 	std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), upTo, pair.first);
@@ -165,25 +163,20 @@ void PmergeMe::findSpot ( std::pair<int,int> pair ) {
 
 void PmergeMe::insertPending( void ) {
 
-	std::cout << "INSERT PENDING" << std::endl;
-	std::vector<int>::iterator it;
-	it = this->_sortedVector.begin();
+	std::vector<int>::iterator it = this->_sortedVector.begin();
 	this->_sortedVector.insert(it, this->_pairsVector[0].first);
-	this->printVector(this->_sortedVector);
 
 	std::vector<std::pair<int, int> >::iterator penValue;
 	
 	for (penValue = this->_pairsVector.begin() + 1; penValue != this->_pairsVector.end(); penValue++)
-	{
-		std::cout << "FOR LOOP" << std::endl;
 		findSpot(*penValue);
-	}
+
 	if (this->_isEven == false)
 	{
-		std::cout << "this is not even - straggler : " << this->_straggler << std::endl;
 		std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), this->_sortedVector.end(), this->_straggler);
 		this->_sortedVector.insert(valuePos, this->_straggler);
 	}
+	std::cout << "\nAfter : ";
 	this->printVector(this->_sortedVector);
 }
 

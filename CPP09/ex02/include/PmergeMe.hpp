@@ -9,21 +9,22 @@
 #include <exception>
 #include <algorithm>
 #include <utility>
+#include <time.h>
+#include <iomanip>
 
 class PmergeMe
 {
 
 private:
 
-    std::vector<int> _argVector;
-    std::vector<std::pair<int, int> > _pairsVector;
-	std::vector<int> _sortedVector;
-	int*			 _jacobSequence;
-    int             _straggler;
+    std::vector<int>					_argVector;
+    std::vector<std::pair<int, int> >	_pairsVector;
+	std::vector<int>					_sortedVector;
+    int									_straggler;
+    bool								_isEven;
 
 public:
 
-    bool            _isEven;
     PmergeMe();
     PmergeMe( PmergeMe const & src );
     ~PmergeMe();
@@ -32,11 +33,11 @@ public:
 
     int     getStraggler( void ) const;
     bool    isEven( void );
-    void    printVector( void );
     void    printVector( std::vector<int> vector );
     void    printPairsVector( void );
     int     getSize( void ) const;
 
+	void	sortVector(int ac, char** arg );
     void    initialiseContainers( int ac, char** arg );
     void    divideIntoPairs( void );
     void    sortEachPair( void );
