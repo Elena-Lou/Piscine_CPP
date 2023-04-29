@@ -38,9 +38,6 @@ int main (int ac, char** av ) {
         PmergeMe test;
 
         test.initialiseContainers(ac, av);
-
-		std::cout << std::boolalpha << test.isEven() << std::endl;
-		std::cout << test.getStraggler() << std::endl;
 		test.divideIntoPairs();
 		test.sortEachPair();
         int size = test.getSize();

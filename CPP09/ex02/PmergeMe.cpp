@@ -74,13 +74,14 @@ void PmergeMe::initialiseContainers( int ac, char** arg ) {
         {
             if (!std::isdigit(arg[i][j]))
 				throw PmergeMe::BadInputException();
-            // std::cout << "av[" << i << "][" << j << "] : " << arg[i][j] << std::endl;
         }
         value = std::atoi(arg[i]);
-        // std::cout << "value = " << value << std::endl;
+		if (value < 0)
+			throw PmergeMe::BadInputException();
         this->_argVector.push_back(value);
     }
 	this->printVector();
+	this->_isEven = this->isEven();
 }
 
 bool PmergeMe::isEven( void ) {
@@ -90,6 +91,7 @@ bool PmergeMe::isEven( void ) {
 	{
 		this->_straggler = this->_argVector.back();
 		this->_argVector.pop_back();
+		std::cout << "straggler : " << this->_straggler << std::endl;
 		return false;
 	}
 	return true;
@@ -107,7 +109,6 @@ void PmergeMe::divideIntoPairs( void ) {
 		this->_pairsVector.push_back(std::make_pair(*first, *second));
 	}
 	this->printPairsVector();
-
 }
 
 void PmergeMe::sortEachPair( void ) {
@@ -152,16 +153,6 @@ void PmergeMe::splitPairs( void ) {
 	this->printVector(this->_sortedVector);
 }
 
-int PmergeMe::jacobsthal( int n ) {
-
-	if (n == 0)
-		return 0;
-	if (n == 1)
-		return 1;
-
-	return jacobsthal(n - 1) + 2 * jacobsthal(n - 2);
-}
-
 void PmergeMe::findSpot ( std::pair<int,int> pair ) {
 
 	std::cout << "FIND SPOT" << std::endl;
@@ -187,9 +178,10 @@ void PmergeMe::insertPending( void ) {
 		std::cout << "FOR LOOP" << std::endl;
 		findSpot(*penValue);
 	}
-	if (!this->isEven())
+	if (this->_isEven == false)
 	{
-		std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), this->_sortedVector.begin(), this->_straggler);
+		std::cout << "this is not even - straggler : " << this->_straggler << std::endl;
+		std::vector<int>::iterator valuePos = std::lower_bound(this->_sortedVector.begin(), this->_sortedVector.end(), this->_straggler);
 		this->_sortedVector.insert(valuePos, this->_straggler);
 	}
 	this->printVector(this->_sortedVector);

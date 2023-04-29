@@ -20,10 +20,10 @@ private:
 	std::vector<int> _sortedVector;
 	int*			 _jacobSequence;
     int             _straggler;
-    bool            _isEven;
 
 public:
 
+    bool            _isEven;
     PmergeMe();
     PmergeMe( PmergeMe const & src );
     ~PmergeMe();
@@ -36,7 +36,6 @@ public:
     void    printVector( std::vector<int> vector );
     void    printPairsVector( void );
     int     getSize( void ) const;
-    int     jacobsthal( int n );
 
     void    initialiseContainers( int ac, char** arg );
     void    divideIntoPairs( void );
@@ -44,7 +43,6 @@ public:
     void    recursivelySortPairs( int n );
     void    splitPairs( void );
 	void	insertPending( void );
-	void	buildJacobSequence( void );
 	void	findSpot( std::pair<int,int> pair );
 
     void    insertionSort( void );
