@@ -1,10 +1,11 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() : _argVector(0) {
+PmergeMe::PmergeMe() : _argVector(0),  _pairsVector(0), _sortedVector(0), \
+_argDeque(0), _pairsDeque(0), _sortedDeque(0) {
 
 }
 
-PmergeMe::PmergeMe( PmergeMe const & src ) : _argVector(src._argVector) {
+PmergeMe::PmergeMe( PmergeMe const & src ) {
 
     *this = src;
 }
@@ -14,6 +15,14 @@ PmergeMe & PmergeMe::operator=( PmergeMe const & rhs ) {
     if (this != &rhs)
     {
         this->_argVector = rhs._argVector;
+		this->_pairsVector = rhs._pairsVector;
+		this->_sortedVector = rhs._sortedVector;
+		this->_argDeque = rhs._argDeque;
+		this->_pairsDeque = rhs._pairsDeque;
+		this->_sortedDeque = rhs._sortedDeque;
+   		this->_straggler = rhs._straggler;
+    	this->_isEven = rhs._isEven;
+		this->_size = rhs._size;
     }
     return *this;
 }

@@ -29,7 +29,7 @@ private:
     int									_straggler;
     bool								_isEven;
 	int									_size;
-	
+
 public:
 
     PmergeMe();
@@ -47,8 +47,8 @@ public:
     void    sortEachPairVector( void );
     void    recursivelySortPairsVector( int n );
     void    splitPairsVector( void );
-	void	insertPendingVector( void );
 	void	findSpotVector( std::pair<int,int> pair );
+	void	insertPendingVector( void );
 
 	bool    isEvenDeque( void );
     void    printDeque( std::deque<int> deque );
@@ -59,8 +59,8 @@ public:
     void    sortEachPairDeque( void );
     void    recursivelySortPairsDeque( int n );
     void    splitPairsDeque( void );
-	void	insertPendingDeque( void );
 	void	findSpotDeque( std::pair<int,int> pair );
+	void	insertPendingDeque( void );
 
     void    insertionSort( void );
     void    mergeSort( int begin, int end );
@@ -72,8 +72,6 @@ public:
 
             const char* what( void ) const throw();
     };
-
-
 };
 
 #endif
