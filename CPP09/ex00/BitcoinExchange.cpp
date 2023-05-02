@@ -68,6 +68,7 @@ void BcExchange::checkInputAmount( void ) {
 void	BcExchange::initialiseDB( void ) {
 
 	std::ifstream	infile;
+	std::string		firstLine;
 
 	infile.open("data.csv", std::ifstream::in);
 	if (!infile)
@@ -77,19 +78,11 @@ void	BcExchange::initialiseDB( void ) {
 	}
 
 	while (infile.good())
-		
 	{
 		this->_strDate = this->extractData(infile, ",", this->_rate);
 		_database.insert( std::make_pair(this->_strDate, this->_rate) );
 	}
 	infile.close();
-
-	// int i = 0;
-	// for (std::map<std::string, double>::iterator it = _database.begin(); it != _database.end(); it++)
-	// {
-	// 	std::cout << i << " : " << it->first << " " << it->second << std::endl;
-	// 	i++;
-	// }
 }
 
 void BcExchange::printOneDBValue( std::string date ) {
@@ -114,13 +107,12 @@ double BcExchange::calculateValue( double & value ) {
 	}
 	catch (std::out_of_range & e)
 	{
-		std::cerr << "This date is not included in the DB" << std::endl;
+		// std::cerr << "This date is not included in the DB" << std::endl;
 		std::map<std::string, double>::iterator itlow;
 		itlow = this->_database.lower_bound(this->_inputDate);
 		itlow--;
 		rate = itlow->second;
 	}
-		std::cout << this->_inputDate << " : " << rate << std::endl;
 		value = rate * this->_amountBTC;
 	return value;
 }
@@ -139,7 +131,6 @@ void BcExchange::getBTCValues( char* file ) {
 	while (infile.good())
 	{
 		try {
-
 		double valueBTC = 0;
 		this->_inputDate = this->extractData(infile, " | ", this->_amountBTC);
 		if (this->_inputDate.empty())
@@ -150,7 +141,7 @@ void BcExchange::getBTCValues( char* file ) {
 			valueBTC = this->calculateValue(valueBTC);
 		std::cout << this->_inputDate << " => " ;
 		std::cout << this->_amountBTC;
-		std::cout << " = " << valueBTC << std::endl;	
+		std::cout << std::setprecision(8) << " = " << valueBTC << std::endl;	
 		}
 		catch (BadInputException & e )
 		{
